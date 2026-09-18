@@ -68,13 +68,12 @@ All recorded measured batches passed their applicable checkers. Dijkstra and A* 
 
 Four workers improve total throughput by processing different queries concurrently. They do not parallelize an individual query. The recorded HPA/BiHPA results do not establish a consistent advantage for bidirectional search, and the Dijkstra variant results do not establish a stable whole-query speedup from workspace reuse. Process-to-process variation, background load, and scheduling limit conclusions from small timing differences.
 
-HPA tuning uses a separate 1,000-query suite whose sources are disjoint from the evaluation suite. Configuration is locked before held-out measurement. Reports retain raw results, correctness and quality checks, preprocessing time, index/workspace memory, and peak RSS. Historical experiment reports remain available to explain implementation choices; their measured configurations are labeled separately from current behavior.
+HPA tuning uses a separate 1,000-query suite whose sources are disjoint from the evaluation suite. Configuration is locked before held-out measurement. Reports retain raw results, correctness and quality checks, preprocessing time, index/workspace memory, and peak RSS. Committed benchmark JSON summaries record the configurations and results of earlier experiments separately from current behavior.
 
-## 7. Project documentation
+## 7. Project resources
 
 - [README](README.md): setup, usage, and current benchmark summaries.
-- [Architecture](docs/ARCHITECTURE.md): interfaces, ownership, worker pool, and timing boundaries.
-- [C++ text contract](docs/CPP_FORMAT.md) and [JSON schema](docs/DATA_FORMAT.md): formats and validation rules.
-- [Data sources](docs/SOURCES.md): snapshot provenance, hashes, and reproducibility limits.
-- [HPA design](docs/HPA_DESIGN.md) and [BiHPA design](docs/BIHPA_DESIGN.md): algorithms, heuristics, bounds, and tests.
-- [All-algorithm benchmark](docs/ALGORITHM_BENCHMARK_20260918.md) and [Dijkstra comparison](docs/DIJKSTRA_VARIANTS.md): measurement protocols, results, and limitations.
+- [Query suite](benchmarks/README.md): sampling, verification, and benchmark protocols.
+- [C++ interfaces](cpp/include/busmap/): graph, routing, workspace, and worker-pool APIs.
+- [Data manifest](data/processed/graph.manifest.json): snapshot provenance, hashes, and generator versions.
+- [All-algorithm measurements](benchmarks/algorithms-20260918.json) and [Dijkstra measurements](benchmarks/dijkstra-variants-20260918.json): saved configurations, results, and limitations.

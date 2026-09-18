@@ -5,7 +5,6 @@
     "build": {
       "created_at_utc": "2026-09-18T08:27:36.908691+00:00",
       "git_commit": "25faada97463988680818bbe7728bf9e21a9d843",
-      "git_status": " M CMakeLists.txt\n M README.md\n M benchmarks/README.md\n M benchmarks/hpa-recommended.json\n M cpp/apps/benchmark_main.cpp\n M cpp/include/busmap/bihpa.hpp\n M cpp/include/busmap/hpa.hpp\n M cpp/src/bihpa.cpp\n M cpp/src/hpa.cpp\n M docs/BIHPA_DESIGN.md\n M docs/HPA_DESIGN.md\n M tests/cpp/test_bihpa.cpp\n M tests/cpp/test_hpa.cpp\n M tests/test_benchmark.py\n?? benchmarks/heuristic-cache-comparison.json\n?? benchmarks/lto-comparison.json\n?? docs/HEURISTIC_CACHE_RESULTS.md\n?? docs/LTO_RESULTS.md\n?? scripts/compare_hpa_binaries.py\n",
       "binary_sha256": "cf873f7f92d22f2de16db96bd58e729f0bbf6b672d17386b856dafc9fc9b6a6b",
       "source_sha256": {
         "CMakeLists.txt": "ab2c2a0570f5015f41411cc451d8416b7a1d3e0c4b31dbd954f20ac683404824",

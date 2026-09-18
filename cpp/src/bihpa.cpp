@@ -95,7 +95,7 @@ class OverlaySearch {
             const double forward_min = workspace_.forward.heap.front().priority;
             const double backward_min = workspace_.backward.heap.front().priority;
             // WBAE* uses b = 2*g + w*h - h_opposite. Our keys store b/2.
-            // See docs/BIHPA_DESIGN.md for the bound and its consistency requirement.
+            // The termination bound requires consistent heuristics in both directions.
             if (meeting_ != NO_NODE && best_distance_ <= forward_min + backward_min) {
                 return meeting_;
             }

@@ -4,6 +4,5 @@
 
 namespace busmap {
 // Workspace persists across queries; the algorithm owns its resize/reset policy.
-// See docs/ARCHITECTURE.md for the handoff steps.
 PathResult astar(const Graph& graph, const Query& query, SearchWorkspace& workspace);
 }

@@ -33,13 +33,12 @@ The mode does not change the algorithm. A single result file can be assessed wit
 `dijkstra` now uses a reusable workspace/heap and resets touched vertices;
 `dijkstra_baseline` creates new resources per query. Both use the `optimal` checker.
 Metadata `timing.json.dijkstra` specifies `resource_policy`, `distance_reset`, and `heap_storage`.
-[Design and measurements](../docs/DIJKSTRA_VARIANTS.md).
+[Dijkstra measurements](dijkstra-variants-20260918.json).
 Reports predating this change retain measurements from the earlier implementation.
 
 Measurements of Dijkstra, A*, HPA, and BiHPA with 1/4 workers, Release ThinLTO:
-[2026-09-18 report](../docs/ALGORITHM_BENCHMARK_20260918.md),
 [summary JSON](algorithms-20260918.json). Each configuration has 4 independent processes;
-the report retains all measurements and their ranges.
+the JSON retains all measurements and their ranges.
 
 From the root, run `python3 scripts/benchmark.py --algorithm dijkstra astar --mode optimal` after building the busmap-bench target in Release mode. Defaults: warmup=1 batch, repetitions=5 batches. Graph and queries are read before warm-up; graph loading/router setup are recorded separately.
 
@@ -50,7 +49,7 @@ Python computes mean, p50, p95, and max from timings.csv, using nearest-rank per
 Release enables LTO by default (`-DBUSMAP_ENABLE_LTO=ON` in CMake). `timing.json`
 and algorithm entries in `report.json` record `lto_enabled`; use `OFF` and rebuild
 for comparison. The current compiler uses ThinLTO; CMake selects toolchain-appropriate flags.
-See the [LTO on/off measurements](../docs/LTO_RESULTS.md).
+See the [LTO on/off measurements](lto-comparison.json).
 
 An incorrect algorithm may still produce timings but is marked FAIL; do not interpret it as a faster correct solution. Stubs are rejected. Algorithms run sequentially in name order; background load/thermal conditions may affect results. Graph loading is measured once and is affected by the OS page cache. Repetitions run within one process per algorithm and do not represent multiple cold starts.
 
@@ -62,7 +61,7 @@ If solver caching is added later, define reset/cache-hit policies before using t
 
 Tuning selects L by the median of mean full-query service across processes, checking every batch. HPA searches only Weighted configurations with `w>1`: paths must be valid, satisfy the `w` bound, and meet p95 gap ≤1% and maximum gap ≤5%. The configuration is saved to locked.json before held-out measurement. Held-out results are not used for automatic retuning.
 
-See the [design and protocol](../docs/HPA_DESIGN.md). `timing.json` schema v2 adds `hpa`, `peak_rss_bytes`, `max_hpa_workspace_bytes_per_worker`, and `diagnostics_enabled` metadata; the earlier timing CSV is unchanged.
+`timing.json` schema v2 adds `hpa`, `peak_rss_bytes`, `max_hpa_workspace_bytes_per_worker`, and `diagnostics_enabled` metadata; the earlier timing CSV is unchanged.
 
 ## HPA workspace
 
@@ -72,13 +71,10 @@ while BiHPA uses epochs for the h pair shared by both directions. Cached values 
 valid across queries. Metadata `hpa.heuristic_cache = per_query` and
 `hpa.heuristic_cache_invalidation = first_touch|epoch` identify this behavior.
 Diagnostics add `heuristic_requests` and `heuristic_evaluations`; workspace bytes
-include cache vectors. [Cache report](../docs/HEURISTIC_CACHE_RESULTS.md).
+include cache vectors. [Cache measurements](heuristic-cache-comparison.json).
 `max_hpa_workspace_bytes_per_worker` measures the largest vector capacity in one worker,
 not RSS. `scripts/bench.sh hpa` defaults to the `any` checker; Dijkstra/A* still default
 to `optimal`. Explicitly select `--mode` to change the checker criterion.
-
-The [workspace comparison report](../docs/HPA_WORKSPACE_COMPARISON.md) retains measurements
-from the earlier version; fresh mode and the comparison script have been removed from current source.
 
 ## Shortcut path representation comparison
 
@@ -88,7 +84,6 @@ There is no longer a path-representation option or a script comparing variants.
 `path_storage_bytes` and `path_nodes` report shortcut storage memory and NodeId counts.
 Diagnostics use `search_ns`, `reconstruction_ns`, and `overlay_expanded`;
 there is no longer an internal-search phase or a `local_expanded` counter.
-See the [historical comparison report](../docs/HPA_PATH_STORAGE.md).
 
 ## Bidirectional HPA
 
@@ -100,4 +95,4 @@ For BiHPA, `timing.json.hpa.index_bytes` and `index_build_ms` include the base a
 Compare fixed configurations with `scripts/compare_bihpa.py --output-dir artifacts/bihpa-new`.
 Defaults: 6 independent processes per algorithm/worker-count pair, 2 warm-ups + 10 measured batches,
 1 and 4 workers, queue 64, balanced AB/BA with seed 162164. This query suite is not used for tuning.
-See the [results](../docs/BIHPA_RESULTS.md) and [design](../docs/BIHPA_DESIGN.md).
+See the [comparison results](bihpa-comparison.json).

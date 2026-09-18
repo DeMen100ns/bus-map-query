@@ -6,7 +6,7 @@ The benchmark dataset is a distance graph built from Ho Chi Minh City (HCMC) bus
 
 **Available:** a canonical graph, text exporter, C++ CSR graph and loader, a multi-query CLI with an optional worker pool, 1,000 queries with Python reference answers, optimal/any checking, timing benchmarks, and tests.
 
-**Algorithms:** Dijkstra/A*, Weighted HPA*, and bidirectional Weighted HPA* are implemented. HPA uses Dijkstra to precompute shortcut paths, Weighted A* to search for a route, and stored paths to reconstruct it. Workers share an immutable index; query results are not cached. BiHPA implements bidirectional search in a separate file and shares HPA's shortcut paths. See the [HPA* design](docs/HPA_DESIGN.md), [BiHPA design](docs/BIHPA_DESIGN.md), [performance comparison](docs/BIHPA_RESULTS.md), and [HPA tuning results](docs/HPA_RESULTS.md).
+**Algorithms:** Dijkstra/A*, Weighted HPA*, and bidirectional Weighted HPA* are implemented. HPA uses Dijkstra to precompute shortcut paths, Weighted A* to search for a route, and stored paths to reconstruct it. Workers share an immutable index; query results are not cached. BiHPA implements bidirectional search in a separate file and shares HPA's shortcut paths.
 
 ## Latest recorded benchmark results — 2026-09-18
 
@@ -14,8 +14,8 @@ The workload contains **1,000 fixed queries** on the HCMC graph (**38,148 vertic
 
 These are the latest saved measurements, from two sessions:
 
-- **Dijkstra baseline and reused-workspace Dijkstra:** the later [Dijkstra variant comparison](docs/DIJKSTRA_VARIANTS.md), with 4 independent processes per configuration, 2 warm-up batches and 5 measured batches per process. These replace the older Dijkstra figures from the all-algorithm run.
-- **A*, HPA*, and BiHPA*:** the [all-algorithm comparison](docs/ALGORITHM_BENCHMARK_20260918.md), with 4 independent processes per configuration, 2 warm-up batches and 10 measured batches per process.
+- **Dijkstra baseline and reused-workspace Dijkstra:** the later [Dijkstra variant comparison](benchmarks/dijkstra-variants-20260918.json), with 4 independent processes per configuration, 2 warm-up batches and 5 measured batches per process. These replace the older Dijkstra figures from the all-algorithm run.
+- **A*, HPA*, and BiHPA*:** the [all-algorithm comparison](benchmarks/algorithms-20260918.json), with 4 independent processes per configuration, 2 warm-up batches and 10 measured batches per process.
 
 Each value below is a median across processes. The sessions were run separately on a shared desktop with substantial timing variation, so cross-session differences are descriptive rather than a controlled comparison of the current implementations.
 
@@ -50,11 +50,11 @@ Four workers process different queries concurrently. Each query still runs on on
 - **Four workers improve total throughput**, even when individual service times rise under resource contention and scheduling. The scaling column compares each algorithm's 4-worker and 1-worker throughput within its own benchmark session; it does not measure a speedup for a single query.
 - **A* guides search toward the target with a distance heuristic. HPA* additionally uses precomputed shortcuts through intermediate clusters**, reducing query-time search work. That preprocessing is paid before queries: the all-algorithm run reports roughly 18 ms to build either hierarchical index, with about 3.04 MiB for HPA* and 4.48 MiB for BiHPA*, shared across workers.
 - **HPA* has the highest recorded throughput in these tables.** BiHPA* searches from both ends, but managing two search frontiers and their meeting condition adds work; bidirectional search is not automatically faster. Process variation was large, so the small four-worker HPA*/BiHPA* difference is not a stable performance ranking.
-- **Workspace reuse does not guarantee a whole-query speedup.** The latest reused Dijkstra mean is lower than baseline with one worker but higher with four; an earlier trial gave the opposite one-worker result. The [variant report](docs/DIJKSTRA_VARIANTS.md) explains the reset costs and measurement variability.
+- **Workspace reuse does not guarantee a whole-query speedup.** The latest reused Dijkstra mean is lower than baseline with one worker but higher with four; an earlier trial gave the opposite one-worker result.
 
 ### Path quality
 
-All measured batches passed their respective checkers. Dijkstra (both variants) and A* return optimal distances within numerical tolerance on this suite. HPA*/BiHPA* use Weighted search, trading exact optimality for query speed. With `w=1.05`, their theoretical cost bound is 5% above optimum under the documented heuristic assumptions; the observed gaps below are smaller.
+All measured batches passed their respective checkers. Dijkstra (both variants) and A* return optimal distances within numerical tolerance on this suite. HPA*/BiHPA* use Weighted search, trading exact optimality for query speed. With `w=1.05`, their theoretical cost bound is 5% above optimum when the heuristics satisfy the required lower-bound and consistency conditions; the observed gaps below are smaller.
 
 | Algorithm | Valid paths | Optimal paths within tolerance | p95 distance gap | Maximum distance gap |
 |---|---:|---:|---:|---:|
@@ -65,15 +65,15 @@ All measured batches passed their respective checkers. Dijkstra (both variants) 
 
 Distance gap is `(returned distance / optimal distance - 1) × 100%`; it measures extra path length. Quality counts each of the 1,000 distinct queries once. For each algorithm, results are identical across worker counts and repeated runs, so using four workers changes throughput without changing path quality. Floating-point gaps near zero are rounded to zero above.
 
-For process ranges, memory measurements, and reproducibility details, see the [all-algorithm report](docs/ALGORITHM_BENCHMARK_20260918.md) and [Dijkstra variant report](docs/DIJKSTRA_VARIANTS.md). The underlying data is in [algorithms-20260918.json](benchmarks/algorithms-20260918.json) and [dijkstra-variants-20260918.json](benchmarks/dijkstra-variants-20260918.json).
+Process ranges, memory measurements, and reproducibility details are recorded in [algorithms-20260918.json](benchmarks/algorithms-20260918.json) and [dijkstra-variants-20260918.json](benchmarks/dijkstra-variants-20260918.json).
 
 ## Where to start
 
-1. Read the [architecture and interfaces](docs/ARCHITECTURE.md) and [HPA* design](docs/HPA_DESIGN.md).
+1. Read the [project overview](PROJECT_REPORT.md) and explore the interfaces in `cpp/include/busmap/`.
 2. Build in Release mode and run CTest as described below.
 3. Run `scripts/bench.sh` to benchmark an algorithm, or `scripts/tune_hpa.py` to select a cluster size on a separate tuning set.
 
-See also the [full report](PROJECT_REPORT.md), [JSON schema](docs/DATA_FORMAT.md), [data sources](docs/SOURCES.md), and [query suite](benchmarks/README.md).
+See also the [query suite](benchmarks/README.md) for sampling, verification, and benchmarking details.
 
 ## Directory structure
 
@@ -91,7 +91,6 @@ BusMap/
 ├── cpp/apps/                    # CLI
 ├── tests/                       # Python, C++, fixtures
 ├── benchmarks/                  # Fixed queries and reference answers
-├── docs/
 ├── artifacts/                   # Generated as needed, ignored by Git
 └── build/                       # CMake output, ignored by Git
 ```
@@ -140,7 +139,7 @@ mkdir -p artifacts
 .venv/bin/python scripts/busmap_data.py check --results artifacts/results.txt
 ```
 
-All four algorithms return actual paths for the checker to validate. Dijkstra has two variants: `dijkstra` reuses its workspace/heap and resets touched vertices; `dijkstra_baseline` allocates new distance, parent, and heap storage for each call. `--algorithm` accepts `dijkstra`, `dijkstra_baseline`, `astar`, `hpa`, and `bihpa`. HPA and BiHPA share the `--hpa-cluster-size` and `--hpa-weight` options. See the [two Dijkstra variants](docs/DIJKSTRA_VARIANTS.md).
+All four algorithms return actual paths for the checker to validate. Dijkstra has two variants: `dijkstra` reuses its workspace/heap and resets touched vertices; `dijkstra_baseline` allocates new distance, parent, and heap storage for each call. `--algorithm` accepts `dijkstra`, `dijkstra_baseline`, `astar`, `hpa`, and `bihpa`. HPA and BiHPA share the `--hpa-cluster-size` and `--hpa-weight` options.
 
 Queries can also be supplied through stdin; the graph is still loaded exactly once:
 
@@ -251,13 +250,13 @@ Focused benchmark infrastructure tests: `ctest --test-dir build -R '^benchmark$'
 
 HPA retains only **Weighted search with stored shortcut paths**, defaulting to **L=3,500 m, w=1.05**. It always reuses a private workspace per worker and shares an immutable index. `--hpa-weight` must exceed 1; the workspace option has been removed. Dijkstra precomputes both shortcut distances and paths; queries read and concatenate the stored paths. HPA benchmarks default to the `any` checker and report error relative to the oracle; `--mode` does not change the algorithm.
 
-The Weighted configuration achieved a p95 gap of 0.0141% and a maximum gap of 1.2516% on the evaluation suite. See the [current design](docs/HPA_DESIGN.md), [historical tuning report](docs/HPA_RESULTS.md), and [measured workspace lifecycle comparison](docs/HPA_WORKSPACE_COMPARISON.md). Older reports retain exact/fresh measurements for reference; both modes have been removed from the current code.
+The Weighted configuration achieved a p95 gap of 0.0141% and a maximum gap of 1.2516% on the evaluation suite. Exact search and fresh-workspace modes have been removed from the current HPA implementation.
 
 Tuning uses 1,000 queries whose sources are disjoint from the evaluation suite, searches only `w>1`, and locks the configuration before held-out evaluation. Reports retain CSV/JSON, correctness, quality by distance group, build time, index bytes, workspace, and peak RSS. Python with matplotlib can generate charts using `scripts/tune_hpa.py --render-only <session>`.
 
 ### Storing shortcut paths during preprocessing
 
-HPA always stores the full path for each shortcut and concatenates it directly during queries. Run `./scripts/bench.sh hpa`; the `--hpa-path-storage` option no longer exists. The `refine` and `trees` branches and the comparison script have been removed from the code. The [historical comparison report](docs/HPA_PATH_STORAGE.md) retains the measurements used to select this storage method.
+HPA always stores the full path for each shortcut and concatenates it directly during queries. Run `./scripts/bench.sh hpa`; the `--hpa-path-storage` option no longer exists. The `refine` and `trees` branches and the comparison script have been removed from the code.
 
 ## Dataset and limitations
 

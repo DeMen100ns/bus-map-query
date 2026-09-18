@@ -1,14 +1,14 @@
-# Architecture and guide to implementing C++ algorithms
+# Architecture and C++ interfaces
 
 ## 1. Responsibilities
 
-Python handles data and verification. C++ processes queries on the prepared graph. Dijkstra and A* have implementations written by you. HPA* retains only Weighted search with Dijkstra preprocessing and stored shortcut paths. The CLI supports a fixed worker pool; there is no result cache yet.
+Python handles data and verification. C++ processes queries on the prepared graph. Dijkstra and A* are implemented alongside Weighted HPA* and bidirectional Weighted HPA*. HPA* retains only Weighted search with Dijkstra preprocessing and stored shortcut paths. The CLI supports a fixed worker pool; there is no result cache yet.
 
 ```text
 raw JSONL → Python builder → canonical graph.json
                                   ├→ exporter → graph.txt → C++ loader → Graph CSR
                                   └→ oracle/generator → queries + answers          ↓
-                                                            query → Router → your algorithm
+                                                            query → Router → C++ algorithm
                                                                         ↓
                                                                result → Python checker
 ```

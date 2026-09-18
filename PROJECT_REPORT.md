@@ -1,12 +1,12 @@
-# BusMap — C++ infrastructure handoff report
+# BusMap — Project report
 
-## 1. Project objective
+## 1. Overview
 
-BusMap currently focuses on CS163 Task 2: building a graph from HCMC bus route geometry and studying shortest-path algorithms. Python handles data processing and verification. The user implements the C++ core, including Dijkstra, A*, HPA*, heuristics, workspaces, and caches.
+BusMap is a C++ pathfinding project for comparing shortest-path algorithms on a directed distance graph built from Ho Chi Minh City (HCMC) bus route geometry. It combines a reproducible data pipeline, multiple routing algorithms, concurrent query processing, independent correctness checks, and benchmark reports.
 
-This version provides the environment for implementing algorithms: a canonical graph, CSR loader, CLI, test dataset, and checker. The three C++ algorithms still return `not_implemented`; no C++ shortest-path results or performance measurements are available yet.
+Python prepares the data and verifies results. The C++20 library implements Dijkstra, A*, Weighted HPA*, and bidirectional Weighted HPA*. Both command-line tools use the same graph, router, and algorithm implementations.
 
-## 2. Data
+## 2. Dataset and scope
 
 | Component | Count |
 |---|---:|
@@ -16,56 +16,65 @@ This version provides the environment for implementing algorithms: a canonical g
 | Unique vertices | 38,148 |
 | Directed edges | 42,170 |
 
-Raw `paths.jsonl` and canonical `graph.json` remain byte-for-byte unchanged in this phase. IDs follow the exact `(lat,lon)` sort order; nearby points are not snapped together. Weights are Euclidean distances under the EPSG:3405 projection, in meters. Self-loops are removed; duplicate edges in the same direction are merged using the minimum weight.
+The raw snapshot is stored in `data/raw/paths.jsonl`; the canonical graph is `data/processed/graph.json`. Vertex IDs follow the exact `(lat,lon)` sort order, without snapping nearby points together. Weights are Euclidean distances under the EPSG:3405 projection, in meters. Self-loops are removed, and duplicate edges in the same direction are merged using the minimum weight.
 
-Vertices describe route geometry and are not necessarily stops. The graph has no route membership, waiting times, schedules, traffic, or transfer costs. RouteId is an internal identifier, not a public route number. The collection date is unknown; this is a historical snapshot, and normalization does not turn it into the current bus network.
+Vertices describe route geometry and are not necessarily bus stops. The graph has no route membership, waiting times, schedules, live traffic, or transfer costs. RouteId is an internal identifier, not a public route number. The collection date is unknown; this is a historical snapshot, and normalization does not update it to the current bus network.
 
-## 3. Pipeline and handoff files
+## 3. Data pipeline
 
-Python preprocessing reads/validates the raw data, builds JSON schema v1, and exports text for C++. The text contains IDs, lat/lon, projected x/y coordinates, and edges. Numeric values use 17 significant digits; edge distances are taken directly from JSON. The manifest records SHA-256, counts, provenance, and pyproj/PROJ versions; the collection date is null.
+Python preprocessing validates the raw JSONL, builds JSON schema v1, and exports a text representation for C++. The text contains vertex IDs, lat/lon, projected x/y coordinates, and edges. Numeric values use 17 significant digits, and edge distances are taken directly from JSON. The export manifest records SHA-256 hashes, counts, provenance, and pyproj/PROJ versions; the collection date is null.
 
-The main commands in `scripts/busmap_data.py` are `build`, `export`, `queries`, and `check`. Defaults are independent of the working directory. Writers refuse to overwrite input/raw data and use a temporary file followed by replacement for each output. JSON remains canonical so that the text file can be verified against an independent representation.
+The entry point is `scripts/busmap_data.py`, with `build`, `export`, `queries`, and `check` commands. Default paths are independent of the working directory. Writers refuse to overwrite input/raw data and use temporary files followed by replacement for each output. JSON remains canonical so the C++ text representation can be checked independently.
 
-The historical Python algorithms have moved to `python/reference/`, preserving their algorithm bodies. The old A* still has inconsistent return types between cache hits and misses; the old hierarchical implementation still has issues with ID-based partitioning, a one-directional cache, and incorrect early termination. They are not the oracle for C++.
+Earlier Python implementations remain in `python/reference/`. Their known limitations include inconsistent A* return types between cache hits and misses, and ID-based partitioning, one-directional caching, and incorrect early termination in the hierarchical implementation. They are historical references, not correctness oracles for the C++ algorithms.
 
-## 4. C++ architecture
+## 4. Routing algorithms and architecture
 
-The `busmap` library contains Graph, the loader, query/result types, the router, and three stubs. Graph uses CSR with read-only getters. The loader checks headers/version/CRS/unit, dense IDs, sorted/unique coordinates, endpoints, sorted/unique edges, weights, and file length.
+The `busmap` library contains the immutable CSR graph, loader, query/result types, router, algorithms, and worker pool. The loader validates headers, version, coordinate systems, units, dense IDs, sorted/unique coordinates and edges, endpoints, weights, and file length.
 
-`busmap-query` loads the graph once, receives multiple queries from a file/stdin, and calls the router. Input and output include a version, graph hash, query IDs, and counts. The hash tag identifies the dataset; C++ does not hash the JSON file itself. Diagnostics go to stderr; results go to stdout.
+| Algorithm | Approach | Query resources |
+|---|---|---|
+| `dijkstra_baseline` | Dijkstra on the original graph | New distance, parent, and heap storage per query |
+| `dijkstra` | Dijkstra on the original graph | Per-worker workspace and heap reuse; reset touched distances |
+| `astar` | Heuristic-guided search on the original graph | Reusable search arrays and a local priority queue |
+| `hpa` | Weighted A* over original edges and precomputed cluster shortcuts | Shared immutable index and private reusable workspace |
+| `bihpa` | Bidirectional Weighted search over the same hierarchical graph | Shared base/reverse indexes and two private search states |
 
-Result statuses are found, unreachable, invalid_vertex, and not_implemented. The CLI returns exit code 2 for a stub, 1 for invalid input or an invalid vertex, and 0 when found/unreachable queries complete. There is no Python fallback.
+HPA partitions projected coordinates into clusters and retains all boundary portals. Dijkstra precomputes internal shortcut distances and complete paths; query-time search uses those shortcuts, then concatenates their stored paths. The current defaults are L=3500 m and w=1.05. Only Weighted search with w>1 and reusable workspaces is supported; historical exact/fresh modes have been removed.
 
-CMake uses C++20 with no JSON library dependency. A*/HPA*/caching are not yet implemented. When HPA is added, its index must be owned by a solver/router that persists across queries; it must not be rebuilt for each pathfinding call.
+BiHPA adds reverse adjacency and bidirectional search, using the same cluster configuration and shortcut paths. Each worker caches heuristic values only within the current query. Neither hierarchical algorithm caches completed query results.
 
-## 5. Oracle, queries, and checker
+`busmap-query` loads the graph once and processes queries from a file or stdin. With one worker, queries run sequentially; multiple workers use a fixed pool with bounded queues. Each worker owns its search state and shares the read-only graph and indexes. Results are emitted in input order. The graph must outlive the routers, indexes, and pool that reference it.
 
-The separate Python oracle uses Dijkstra with a heap and stale-entry checks. Tests compare it against small reference answers and independent Floyd–Warshall results on small graphs with zero-weight edges and unreachable pairs.
+Input and output include a version, graph identity hash, query IDs, and counts. Diagnostics go to stderr and results to stdout. The CLI returns 0 for completed found/unreachable queries and 1 for invalid input, I/O errors, or invalid vertices. The format also reserves `not_implemented`, which the checker rejects; the implemented routing algorithms do not rely on Python fallbacks.
 
-The HCMC query suite contains 1,000 unique reachable pairs, with seed 162163. The pool contains 3,000 pairs with at most 10 targets per source; sources are selected from a shuffled ordering of the entire ID range. The pool is divided by distance, then 334/333/333 queries are sampled, retaining group labels and oracle distances. This is synthetic sampling and does not represent real usage.
+## 5. Independent verification
 
-The checker validates hashes, the query ID set, statuses, directed paths, endpoints, and total weights. Optimal mode compares distances with the optimum within tolerance; any mode accepts every valid path and reports gaps while still rejecting invalid paths or incorrect reachability. Any mode permits positive-cost paths when the optimum is 0; it reports extra distance in meters and a null percentage gap. The old names exact/approximate remain aliases. Different equally optimal paths are accepted. NotImplemented always fails.
+The Python oracle uses Dijkstra with a heap and stale-entry checks. Its tests include known small graphs and an independent Floyd–Warshall implementation, with zero-weight edges and unreachable pairs.
 
-Fixtures add source=target, invalid IDs, one-way edges, isolated vertices, zero-weight edges, and tied paths. Fixture weights are chosen manually; a coordinate-based heuristic is not automatically valid on them.
+The HCMC benchmark suite contains 1,000 unique reachable pairs, with seed 162163. A pool of 3,000 pairs is sampled with at most 10 targets per source; sources come from a shuffled ordering of the entire ID range. The pool is divided by distance, then 334/333/333 queries are selected from the three groups. This synthetic sampling does not represent real user traffic.
 
-## 6. Testing and next steps
+The checker validates hashes, the query ID set, statuses, directed edges, endpoints, and total weights. `optimal` mode requires the oracle distance within tolerance. `any` mode accepts any valid path and reports its distance gap, while still rejecting invalid paths and incorrect reachability. Different equally optimal paths are accepted. For a positive-cost path with a zero optimum, `any` reports the extra distance in meters and a null percentage gap. The aliases `exact` and `approximate` remain available for the two checker modes.
 
-Test groups cover the earlier normalization, byte preservation, reproducible export, round-tripping every node/edge, reproducible queries and oracle distances, checker failures, the CSR loader on real data, CLI file/stdin input, and malformed input.
+Fixtures cover source=target, invalid IDs, one-way edges, isolated vertices, zero-weight edges/cycles, and tied paths. Fixture weights are manually chosen; coordinate-based heuristics are not automatically admissible on every fixture. C++ algorithm tests additionally compare all source/target pairs on 100 small directed graphs against independent Floyd–Warshall results. Pool and CLI tests exercise multiple producers, small queues, streaming, and output ordering.
 
-Passing scaffold tests confirms the infrastructure, not the C++ algorithms. After implementing Dijkstra, update the stub assertions and run the checker on the fixture and complete query suite. Then implement A* and HPA*, measuring preprocessing, queries, and RAM separately. Concurrency, a newer bus network, and live traffic are outside this phase.
+## 6. Benchmarking and current results
 
-Read README for build/run commands and `docs/ARCHITECTURE.md` to start implementing. The wire format is in `docs/CPP_FORMAT.md`, JSON in `docs/DATA_FORMAT.md`, and sources/historical backups in `docs/SOURCES.md`. The original Task 2 report remains unchanged in docs; its historical benchmarks have not been rerun with the new architecture.
+`busmap-bench` runs the same implementations as the query CLI. It loads the graph once per process, warms up the executor, then measures repeated batches of the fixed workload. Service time includes resource initialization/reset, search, and full path reconstruction. Queue wait and end-to-end query latency are reported separately; batch wall time determines throughput. Graph loading, index construction, file writes, and checking are outside query timing.
 
-## 7. Timing benchmark addition
+The [README benchmark tables](README.md#latest-recorded-benchmark-results--2026-09-18) summarize the latest recorded results for one and four workers, including both Dijkstra variants. The Dijkstra comparison was recorded in a later session than the A*/HPA*/BiHPA* measurements; the tables identify those sources rather than treating them as one controlled experiment.
 
-After the user implemented Dijkstra/A*, the busmap-bench target and scripts/benchmark.py were added. The stub descriptions above refer to the original handoff; the user may since have implemented the C++ code. The benchmark calls the current implementation through Router and uses the checker to determine correctness.
+All recorded measured batches passed their applicable checkers. Dijkstra and A* matched optimal distances within tolerance on the evaluation suite. Weighted HPA achieved a p95 distance gap of 0.014112% and a maximum of 1.251586%; BiHPA achieved 0.065208% and 1.622314%, respectively. Within each algorithm, outputs were identical across worker counts and repeated runs.
 
-Each algorithm loads the graph once, warms up on one batch, and measures five batches by default on the fixed query suite. Graph loading, router setup, and individual query calls are measured separately; reports include mean/p50/p95 and totals per batch. Search and reconstruction are included; file I/O, checking, and destruction of returned results are outside the query timer. Raw samples are retained, and every run is checked. Optimal/any mode changes only the acceptance criterion, not the algorithm. Concurrency/caching have not yet been benchmarked; these results should not be generalized to every workload.
+Four workers improve total throughput by processing different queries concurrently. They do not parallelize an individual query. The recorded HPA/BiHPA results do not establish a consistent advantage for bidirectional search, and the Dijkstra variant results do not establish a stable whole-query speedup from workspace reuse. Process-to-process variation, background load, and scheduling limit conclusions from small timing differences.
 
-## HPA* implementation update — 2026-09-18
+HPA tuning uses a separate 1,000-query suite whose sources are disjoint from the evaluation suite. Configuration is locked before held-out measurement. Reports retain raw results, correctness and quality checks, preprocessing time, index/workspace memory, and peak RSS. Historical experiment reports remain available to explain implementation choices; their measured configurations are labeled separately from current behavior.
 
-The stub descriptions and concurrency limitations above are historical handoff notes. C++ now includes Dijkstra, A*, Weighted HPA, and a worker pool. HPA retains one implementation: partition by coordinates in meters, retain all directed portals, precompute shortcut distances and paths with Dijkstra, search with Weighted A*, then concatenate the stored paths. The index is shared, and each worker always reuses its private workspace; there is no result cache yet. Correctness checks include the HCMC oracle and all pairs on 100 small graphs. The design and source-disjoint tuning/testing protocol are in docs/HPA_DESIGN.md; scripts/tune_hpa.py retains raw results and reports for each session.
+## 7. Project documentation
 
-Update, 2026-09-18: HPA retains only Weighted search (default L=3500 m, w=1.05)
-and a reusable workspace; exact and fresh modes have been removed. Earlier
-measurements remain in historical reports as comparison evidence.
+- [README](README.md): setup, usage, and current benchmark summaries.
+- [Architecture](docs/ARCHITECTURE.md): interfaces, ownership, worker pool, and timing boundaries.
+- [C++ text contract](docs/CPP_FORMAT.md) and [JSON schema](docs/DATA_FORMAT.md): formats and validation rules.
+- [Data sources](docs/SOURCES.md): snapshot provenance, hashes, and reproducibility limits.
+- [HPA design](docs/HPA_DESIGN.md) and [BiHPA design](docs/BIHPA_DESIGN.md): algorithms, heuristics, bounds, and tests.
+- [All-algorithm benchmark](docs/ALGORITHM_BENCHMARK_20260918.md) and [Dijkstra comparison](docs/DIJKSTRA_VARIANTS.md): measurement protocols, results, and limitations.

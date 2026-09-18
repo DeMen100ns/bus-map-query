@@ -1,6 +1,8 @@
-# BusMap — C++ shortest-path workspace
+# BusMap — High-performance pathfinding in C++
 
-BusMap is a C++ pathfinding project that compares shortest-path algorithms on a distance graph built from Ho Chi Minh City (HCMC) bus route geometry. Python prepares and verifies the data; C++ implements Dijkstra, A*, HPA*, and bidirectional HPA*.
+This project aims to provide an efficient, concurrent C++ solution for processing multiple shortest-path queries, comparing Dijkstra, A*, and hierarchical pathfinding through reproducible benchmarks.
+
+The benchmark dataset is a distance graph built from Ho Chi Minh City (HCMC) bus route geometry. Python prepares and verifies the data; C++ implements Dijkstra, A*, HPA*, and bidirectional HPA*.
 
 **Available:** a canonical graph, text exporter, C++ CSR graph and loader, a multi-query CLI with an optional worker pool, 1,000 queries with Python reference answers, optimal/any checking, timing benchmarks, and tests.
 

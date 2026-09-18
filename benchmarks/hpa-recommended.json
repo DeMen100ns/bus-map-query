@@ -1,0 +1,16 @@
+{
+  "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+  "weighted": {
+    "cluster_size_m": 3500,
+    "heuristic_weight": 1.05,
+    "path_storage": "paths"
+  },
+  "default": "weighted",
+  "path_storage_report": "artifacts/hpa-path-storage-20260918/report.json",
+  "measured_binary_sha256": "26b1a1f720b89762215d216962185c081f00589056d65019fc29205f7dc7272d",
+  "report": "artifacts/hpa-tuning-20260918/report.json",
+  "final_binary_sha256": "cf873f7f92d22f2de16db96bd58e729f0bbf6b672d17386b856dafc9fc9b6a6b",
+  "validation_report": "artifacts/lto-20260918-161414/evaluation-after/report.json",
+  "heuristic_cache_report": "benchmarks/heuristic-cache-comparison.json",
+  "lto_report": "benchmarks/lto-comparison.json"
+}

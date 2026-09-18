@@ -1,0 +1,423 @@
+{
+  "manifest": {
+    "created_at_utc": "2026-09-18T08:05:16.883988+00:00",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "arguments": {
+      "before": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/heuristic-cache-20260918-160127/busmap-bench-before",
+      "after": "/Users/demen100ns/Documents/Code Training/Project/BusMap/build/busmap-bench",
+      "output_dir": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/heuristic-cache-20260918-160127/tune",
+      "queries": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/hpa-tuning-20260918/tune/queries.txt",
+      "answers": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/hpa-tuning-20260918/tune/answers.json",
+      "processes": 4,
+      "repetitions": 8,
+      "warmup": 2,
+      "threads": [
+        1,
+        4
+      ],
+      "seed": 162164,
+      "hpa_cluster_size": 3500,
+      "hpa_weight": 1.05
+    },
+    "binary_sha256": {
+      "before": "55c0c8abf8b10ddc112f3f5794959df2edb973898888b458cae5d0edf76e32d9",
+      "after": "f799a885b9661bfe2d9e1850cc10ba6b170e3baaf0d67103a662b151e4520e02"
+    },
+    "input_sha256": {
+      "queries": "b070b14a4e183b458888471699e098a43d7d91331fcc49a887a4eb466043a8de",
+      "answers": "3ebcfecd287687fb0b8b815647125d8f89dc41b78f7c0a6667dd9fcfd359a333",
+      "graph_json": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+      "graph_text": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca"
+    },
+    "schedule": [
+      [
+        "hpa",
+        1,
+        1,
+        "before"
+      ],
+      [
+        "hpa",
+        1,
+        1,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        2,
+        "before"
+      ],
+      [
+        "hpa",
+        1,
+        2,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        3,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        3,
+        "before"
+      ],
+      [
+        "hpa",
+        1,
+        4,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        4,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        1,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        1,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        2,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        2,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        3,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        3,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        4,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        4,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        1,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        1,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        2,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        2,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        3,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        3,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        4,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        4,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        1,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        1,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        2,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        2,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        3,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        3,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        4,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        4,
+        "before"
+      ]
+    ],
+    "protocol": "Independent sequential processes; balanced before/after order when process count is even. Fixed L/w; service includes complete path reconstruction. All measured paths checked outside timers. Diagnostics are separate passes. Result bytes must match before/after and across worker counts."
+  },
+  "summaries": [
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "version": "before",
+      "mean_ms": 0.15053935687499997,
+      "p95_ms": 0.4410625,
+      "throughput_qps": 6654.717944116232,
+      "max_hpa_workspace_bytes_per_worker": 859476.0,
+      "peak_rss_bytes": 15974400.0,
+      "mean_ms_min": 0.14162836237499998,
+      "mean_ms_max": 0.25644342462499997,
+      "index_bytes": 3187800
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "version": "after",
+      "mean_ms": 0.14622924531250003,
+      "p95_ms": 0.42027099999999995,
+      "throughput_qps": 6832.450053494065,
+      "max_hpa_workspace_bytes_per_worker": 1164660.0,
+      "peak_rss_bytes": 15998976.0,
+      "mean_ms_min": 0.14090152275,
+      "mean_ms_max": 0.15112209675,
+      "index_bytes": 3187800
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "version": "before",
+      "mean_ms": 0.1545899354375,
+      "p95_ms": 0.4983335,
+      "throughput_qps": 6468.508273341948,
+      "max_hpa_workspace_bytes_per_worker": 1717928.0,
+      "peak_rss_bytes": 16064512.0,
+      "mean_ms_min": 0.146787287375,
+      "mean_ms_max": 0.16539397349999999,
+      "index_bytes": 4697784
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "version": "after",
+      "mean_ms": 0.14561529625,
+      "p95_ms": 0.481229,
+      "throughput_qps": 6866.4323169846175,
+      "max_hpa_workspace_bytes_per_worker": 2480888.0,
+      "peak_rss_bytes": 16048128.0,
+      "mean_ms_min": 0.1437349585,
+      "mean_ms_max": 0.160136714875,
+      "index_bytes": 4697784
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "version": "before",
+      "mean_ms": 0.16456378975,
+      "p95_ms": 0.4821875,
+      "throughput_qps": 23995.150540959483,
+      "max_hpa_workspace_bytes_per_worker": 859476.0,
+      "peak_rss_bytes": 17842176.0,
+      "mean_ms_min": 0.156834117,
+      "mean_ms_max": 0.17982734812499998,
+      "index_bytes": 3187800
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "version": "after",
+      "mean_ms": 0.159709453875,
+      "p95_ms": 0.466666,
+      "throughput_qps": 24735.510420579867,
+      "max_hpa_workspace_bytes_per_worker": 1164660.0,
+      "peak_rss_bytes": 17776640.0,
+      "mean_ms_min": 0.153439101875,
+      "mean_ms_max": 0.414120363125,
+      "index_bytes": 3187800
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "version": "before",
+      "mean_ms": 0.17845565081249998,
+      "p95_ms": 0.5659995,
+      "throughput_qps": 22006.180500518378,
+      "max_hpa_workspace_bytes_per_worker": 1717928.0,
+      "peak_rss_bytes": 21291008.0,
+      "mean_ms_min": 0.16844568362499998,
+      "mean_ms_max": 0.188492327375,
+      "index_bytes": 4697784
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "version": "after",
+      "mean_ms": 0.18016239912499998,
+      "p95_ms": 0.564354,
+      "throughput_qps": 21815.718931812473,
+      "max_hpa_workspace_bytes_per_worker": 2480888.0,
+      "peak_rss_bytes": 24338432.0,
+      "mean_ms_min": 0.16835736325,
+      "mean_ms_max": 0.18994982024999998,
+      "index_bytes": 4697784
+    }
+  ],
+  "diagnostics": {
+    "hpa": {
+      "before": {
+        "search_ns": 139511.216,
+        "reconstruction_ns": 2485.479,
+        "overlay_expanded": 1072.502
+      },
+      "after": {
+        "heuristic_requests": 1466.631,
+        "heuristic_evaluations": 1157.457,
+        "search_ns": 134594.886,
+        "reconstruction_ns": 2510.791,
+        "overlay_expanded": 1072.502
+      }
+    },
+    "bihpa": {
+      "before": {
+        "search_ns": 148545.655,
+        "reconstruction_ns": 3060.687,
+        "overlay_expanded": 959.731
+      },
+      "after": {
+        "heuristic_requests": 2725.664,
+        "heuristic_evaluations": 2190.27,
+        "search_ns": 148271.923,
+        "reconstruction_ns": 3225.733,
+        "overlay_expanded": 959.731
+      }
+    }
+  },
+  "result_sha256": {
+    "hpa": "c25a9c76750479cf134731e7c04dbd6f9cee38c1400d22c4f6b99b5b159e0667",
+    "bihpa": "90110b4701a75d89b6f542865d606a04dde6df7f51685c94e72bb76417127f9e"
+  },
+  "source_snapshot": {
+    "before": {
+      "commit": "25faada97463988680818bbe7728bf9e21a9d843",
+      "before_binary_sha256": "55c0c8abf8b10ddc112f3f5794959df2edb973898888b458cae5d0edf76e32d9",
+      "before_source_sha256": {
+        "cpp/src/hpa.cpp": "3ad39393338553fb8a0c1391e9a1040270c20134143038e8ec9e79235734e18e",
+        "cpp/src/bihpa.cpp": "d7743ef1124f5dee82647329d057ee7b1bbc54791572ee89895769cce62025ec",
+        "cpp/include/busmap/hpa.hpp": "f6bcb5ab08892592f53b812519cf06a3c3c899523e709547a2c08f928174c869",
+        "cpp/include/busmap/bihpa.hpp": "9a9723b7de2ba27a71f95c6edb84dd07746ae36e4fa459b2ca9c5b06f06d67d2"
+      }
+    },
+    "after": {
+      "cpp/src/hpa.cpp": "cba8bc710e2966052385928d6440aa4c3df7995df3e9b3a1ab919b9656951435",
+      "cpp/src/bihpa.cpp": "df282b513de31e972584b38aa627206e3bed72944ec4f40f38415d4506361e76",
+      "cpp/include/busmap/hpa.hpp": "f43afe506571534056c2f5a11ea41c9018eb697019365cad3f5dd64cd07a4053",
+      "cpp/include/busmap/bihpa.hpp": "7fd1e60835c003a043b7e5e6791f60d802a34c8f96ce1ab48f45ba367fe9ea3b",
+      "cpp/apps/benchmark_main.cpp": "771cb6ae0d189d08ed455deefd8934e6c9f389a502500965171b5aeab5b110b0",
+      "scripts/compare_hpa_binaries.py": "117ebbec4979221eb0774a1b1abd45625ea1741abbe4fe6c4640a7e43da179c8"
+    }
+  },
+  "evaluation": {
+    "report": "artifacts/heuristic-cache-20260918-160127/evaluation-after/report.json",
+    "ok": true,
+    "algorithms": {
+      "hpa": {
+        "quality": {
+          "mean_gap_percent": 0.005638696709888457,
+          "max_gap_percent": 1.25158638656222,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 0.014112450412073763,
+          "optimal_found_count": 901,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 115.32954945016536,
+          "undefined_relative_gap_count": 0
+        },
+        "workspace_bytes": 1189236,
+        "result_sha256": "d08391bc3e560de98d3809cc28dd549c5ee3f418899e928a2c3eda99d7368a5a"
+      },
+      "bihpa": {
+        "quality": {
+          "mean_gap_percent": 0.029488419189689474,
+          "max_gap_percent": 1.6223137055232595,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 0.06520849109172833,
+          "optimal_found_count": 886,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1059.24591869094,
+          "undefined_relative_gap_count": 0
+        },
+        "workspace_bytes": 2480888,
+        "result_sha256": "8dfd7c65035781ad033b5e868a4875c647924963809a6137b3033aad561563b6"
+      }
+    },
+    "unchanged_before_after": true
+  }
+}

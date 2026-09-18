@@ -1,0 +1,409 @@
+{
+  "manifest": {
+    "created_at_utc": "2026-09-18T07:49:03.130652+00:00",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "binary_sha256": "55c0c8abf8b10ddc112f3f5794959df2edb973898888b458cae5d0edf76e32d9",
+    "arguments": {
+      "binary": "/Users/demen100ns/Documents/Code Training/Project/BusMap/build/busmap-bench",
+      "output_dir": "artifacts/bihpa-comparison-20260918",
+      "processes": 6,
+      "repetitions": 10,
+      "warmup": 2,
+      "threads": [
+        1,
+        4
+      ],
+      "seed": 162164,
+      "hpa_cluster_size": 3500,
+      "hpa_weight": 1.05
+    },
+    "files": {
+      "data/processed/graph.json": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+      "data/processed/graph.txt": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca",
+      "benchmarks/queries.txt": "699d9207ee4ded0f4d15d9efa5b9d8533c996d5ff8008819b5d16099c1fd8d52",
+      "benchmarks/answers.json": "182d3c9b25fa02796d815c8c1c5c6301a817dd35f4d9e118e1ea9d61274b595a",
+      "cpp/src/bihpa.cpp": "d7743ef1124f5dee82647329d057ee7b1bbc54791572ee89895769cce62025ec",
+      "cpp/include/busmap/bihpa.hpp": "9a9723b7de2ba27a71f95c6edb84dd07746ae36e4fa459b2ca9c5b06f06d67d2",
+      "scripts/compare_bihpa.py": "80f3d04b352827565f271b3c49a1392260a8fa2c53ccb9318fdb9d618289537f"
+    },
+    "protocol": "Fixed configuration; no tuning on the evaluation suite. Sequential independent processes. Balanced AB/BA order within each worker count. Checker and file I/O outside timers. Quality uses one sample per query. Diagnostics run after all latency processes.",
+    "schedule": [
+      [
+        1,
+        1,
+        "hpa"
+      ],
+      [
+        1,
+        1,
+        "bihpa"
+      ],
+      [
+        1,
+        2,
+        "bihpa"
+      ],
+      [
+        1,
+        2,
+        "hpa"
+      ],
+      [
+        1,
+        3,
+        "hpa"
+      ],
+      [
+        1,
+        3,
+        "bihpa"
+      ],
+      [
+        1,
+        4,
+        "hpa"
+      ],
+      [
+        1,
+        4,
+        "bihpa"
+      ],
+      [
+        1,
+        5,
+        "bihpa"
+      ],
+      [
+        1,
+        5,
+        "hpa"
+      ],
+      [
+        1,
+        6,
+        "bihpa"
+      ],
+      [
+        1,
+        6,
+        "hpa"
+      ],
+      [
+        4,
+        1,
+        "bihpa"
+      ],
+      [
+        4,
+        1,
+        "hpa"
+      ],
+      [
+        4,
+        2,
+        "hpa"
+      ],
+      [
+        4,
+        2,
+        "bihpa"
+      ],
+      [
+        4,
+        3,
+        "hpa"
+      ],
+      [
+        4,
+        3,
+        "bihpa"
+      ],
+      [
+        4,
+        4,
+        "bihpa"
+      ],
+      [
+        4,
+        4,
+        "hpa"
+      ],
+      [
+        4,
+        5,
+        "hpa"
+      ],
+      [
+        4,
+        5,
+        "bihpa"
+      ],
+      [
+        4,
+        6,
+        "bihpa"
+      ],
+      [
+        4,
+        6,
+        "hpa"
+      ]
+    ]
+  },
+  "summaries": [
+    {
+      "algorithm": "hpa",
+      "workers": 1,
+      "mean_ms": 0.14502014265,
+      "p95_ms": 0.4176665,
+      "throughput_qps": 6894.837459714721,
+      "graph_load_ms": 119.8372295,
+      "router_setup_ms": 15.8433955,
+      "peak_rss_bytes": 15925248.0,
+      "max_hpa_workspace_bytes_per_worker": 884052.0,
+      "mean_ms_min": 0.1434941306,
+      "mean_ms_max": 0.1546218938,
+      "hpa": {
+        "index_build_ms": 15.809000000000001,
+        "base_index_build_ms": 15.809000000000001,
+        "reverse_build_ms": 0.0,
+        "index_bytes": 3187800.0,
+        "base_index_bytes": 3187800.0,
+        "reverse_index_bytes": 0.0,
+        "path_storage_bytes": 2466740.0,
+        "path_nodes": 588573.0
+      },
+      "quality": {
+        "mean_gap_percent": 0.005638696709888457,
+        "max_gap_percent": 1.25158638656222,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.014112450412073763,
+        "optimal_found_count": 901,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 115.32954945016536,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.07118817080838323,
+          "p95_ms": 0.231104,
+          "mean_gap_percent": 0.00967847421985087,
+          "p95_gap_percent": 0.02043547170875737,
+          "max_gap_percent": 1.25158638656222
+        },
+        "medium": {
+          "mean_ms": 0.15034956651651654,
+          "p95_ms": 0.362771,
+          "mean_gap_percent": 0.004897572457773346,
+          "p95_gap_percent": 0.02579449448560922,
+          "max_gap_percent": 0.27058753352335874
+        },
+        "long": {
+          "mean_ms": 0.21416945750750752,
+          "p95_ms": 0.48520850000000004,
+          "mean_gap_percent": 0.0023279119880472757,
+          "p95_gap_percent": 0.005342819270248711,
+          "max_gap_percent": 0.25549116842202846
+        }
+      }
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 1,
+      "mean_ms": 0.1449381999,
+      "p95_ms": 0.45658350000000003,
+      "throughput_qps": 6898.319564012596,
+      "graph_load_ms": 115.8176875,
+      "router_setup_ms": 16.2804585,
+      "peak_rss_bytes": 16023552.0,
+      "max_hpa_workspace_bytes_per_worker": 1717928.0,
+      "mean_ms_min": 0.1430454461,
+      "mean_ms_max": 0.14823384309999998,
+      "hpa": {
+        "index_build_ms": 16.247645499999997,
+        "base_index_build_ms": 15.808875,
+        "reverse_build_ms": 0.431562,
+        "index_bytes": 4697784.0,
+        "base_index_bytes": 3187800.0,
+        "reverse_index_bytes": 1509984.0,
+        "path_storage_bytes": 2466740.0,
+        "path_nodes": 588573.0
+      },
+      "quality": {
+        "mean_gap_percent": 0.029488419189689474,
+        "max_gap_percent": 1.6223137055232595,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.06520849109172833,
+        "optimal_found_count": 886,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1059.24591869094,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.06366871691616767,
+          "p95_ms": 0.170396,
+          "mean_gap_percent": 0.012253733796707423,
+          "p95_gap_percent": 0.0019775278149447573,
+          "max_gap_percent": 1.0417726408471273
+        },
+        "medium": {
+          "mean_ms": 0.12242128153153153,
+          "p95_ms": 0.3046045,
+          "mean_gap_percent": 0.035964153937128984,
+          "p95_gap_percent": 0.10918054136914712,
+          "max_gap_percent": 1.6223137055232595
+        },
+        "long": {
+          "mean_ms": 0.2486735117117117,
+          "p95_ms": 0.5531874999999999,
+          "mean_gap_percent": 0.040299125647222954,
+          "p95_gap_percent": 0.13570833190101883,
+          "max_gap_percent": 1.5929216143234282
+        }
+      }
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 4,
+      "mean_ms": 0.2125665465,
+      "p95_ms": 0.5897295,
+      "throughput_qps": 18615.892554462916,
+      "graph_load_ms": 123.6269795,
+      "router_setup_ms": 17.24825,
+      "peak_rss_bytes": 16744448.0,
+      "max_hpa_workspace_bytes_per_worker": 884052.0,
+      "mean_ms_min": 0.17907945620000001,
+      "mean_ms_max": 0.2569723082,
+      "hpa": {
+        "index_build_ms": 17.185792,
+        "base_index_build_ms": 17.185792,
+        "reverse_build_ms": 0.0,
+        "index_bytes": 3187800.0,
+        "base_index_bytes": 3187800.0,
+        "reverse_index_bytes": 0.0,
+        "path_storage_bytes": 2466740.0,
+        "path_nodes": 588573.0
+      },
+      "quality": {
+        "mean_gap_percent": 0.005638696709888457,
+        "max_gap_percent": 1.25158638656222,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.014112450412073763,
+        "optimal_found_count": 901,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 115.32954945016536,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.10169567874251498,
+          "p95_ms": 0.31589599999999995,
+          "mean_gap_percent": 0.00967847421985087,
+          "p95_gap_percent": 0.02043547170875737,
+          "max_gap_percent": 1.25158638656222
+        },
+        "medium": {
+          "mean_ms": 0.2213881027027027,
+          "p95_ms": 0.5089790000000001,
+          "mean_gap_percent": 0.004897572457773346,
+          "p95_gap_percent": 0.02579449448560922,
+          "max_gap_percent": 0.27058753352335874
+        },
+        "long": {
+          "mean_ms": 0.3149488036036036,
+          "p95_ms": 0.720896,
+          "mean_gap_percent": 0.0023279119880472757,
+          "p95_gap_percent": 0.005342819270248711,
+          "max_gap_percent": 0.25549116842202846
+        }
+      }
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 4,
+      "mean_ms": 0.21601704515000003,
+      "p95_ms": 0.6829164999999999,
+      "throughput_qps": 18309.76138757691,
+      "graph_load_ms": 120.313979,
+      "router_setup_ms": 17.9512705,
+      "peak_rss_bytes": 21315584.0,
+      "max_hpa_workspace_bytes_per_worker": 1717928.0,
+      "mean_ms_min": 0.1755035091,
+      "mean_ms_max": 0.29682013139999996,
+      "hpa": {
+        "index_build_ms": 17.896125,
+        "base_index_build_ms": 17.3729375,
+        "reverse_build_ms": 0.48454149999999996,
+        "index_bytes": 4697784.0,
+        "base_index_bytes": 3187800.0,
+        "reverse_index_bytes": 1509984.0,
+        "path_storage_bytes": 2466740.0,
+        "path_nodes": 588573.0
+      },
+      "quality": {
+        "mean_gap_percent": 0.029488419189689474,
+        "max_gap_percent": 1.6223137055232595,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.06520849109172833,
+        "optimal_found_count": 886,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1059.24591869094,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.095053752245509,
+          "p95_ms": 0.26627049999999997,
+          "mean_gap_percent": 0.012253733796707423,
+          "p95_gap_percent": 0.0019775278149447573,
+          "max_gap_percent": 1.0417726408471273
+        },
+        "medium": {
+          "mean_ms": 0.18240891996996994,
+          "p95_ms": 0.4693125,
+          "mean_gap_percent": 0.035964153937128984,
+          "p95_gap_percent": 0.10918054136914712,
+          "max_gap_percent": 1.6223137055232595
+        },
+        "long": {
+          "mean_ms": 0.37095171636636637,
+          "p95_ms": 0.8616874999999999,
+          "mean_gap_percent": 0.040299125647222954,
+          "p95_gap_percent": 0.13570833190101883,
+          "max_gap_percent": 1.5929216143234282
+        }
+      }
+    }
+  ],
+  "diagnostics": {
+    "hpa": {
+      "overlay_expanded": 1081.559,
+      "forward_expanded": 1081.559,
+      "backward_expanded": 0,
+      "edges_examined": 4327.734,
+      "stale_entries": 179.4,
+      "shortcuts_used": 11.786,
+      "peak_heap": 297.262,
+      "search_ns": 187413.21,
+      "reconstruction_ns": 3695.168,
+      "meeting_updates": 0
+    },
+    "bihpa": {
+      "overlay_expanded": 924.671,
+      "forward_expanded": 487.71,
+      "backward_expanded": 436.961,
+      "edges_examined": 3739.372,
+      "stale_entries": 141.724,
+      "shortcuts_used": 11.804,
+      "peak_heap": 325.506,
+      "search_ns": 193217.522,
+      "reconstruction_ns": 4209.107,
+      "meeting_updates": 1.574
+    }
+  },
+  "result_sha256": {
+    "hpa": "d08391bc3e560de98d3809cc28dd549c5ee3f418899e928a2c3eda99d7368a5a",
+    "bihpa": "8dfd7c65035781ad033b5e868a4875c647924963809a6137b3033aad561563b6"
+  }
+}

@@ -1,0 +1,3171 @@
+{
+  "manifest": {
+    "created_at_utc": "2026-09-18T08:58:29.807686+00:00",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "arguments": {
+      "binary": "/Users/demen100ns/Documents/Code Training/Project/BusMap/build/busmap-bench",
+      "output_dir": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/dijkstra-variants-20260918-164323/comparison-final",
+      "processes": 4,
+      "repetitions": 5,
+      "warmup": 2,
+      "threads": [
+        1,
+        4
+      ]
+    },
+    "binary_sha256": "2150d6438383e9397ae669cf3d5e0a65ff8a4628a10387e056e4e79100f51407",
+    "queue_capacity": 64,
+    "schedule": [
+      [
+        "dijkstra_baseline",
+        1,
+        1
+      ],
+      [
+        "dijkstra",
+        1,
+        1
+      ],
+      [
+        "dijkstra_baseline",
+        4,
+        1
+      ],
+      [
+        "dijkstra",
+        4,
+        1
+      ],
+      [
+        "dijkstra",
+        4,
+        2
+      ],
+      [
+        "dijkstra_baseline",
+        4,
+        2
+      ],
+      [
+        "dijkstra",
+        1,
+        2
+      ],
+      [
+        "dijkstra_baseline",
+        1,
+        2
+      ],
+      [
+        "dijkstra_baseline",
+        1,
+        3
+      ],
+      [
+        "dijkstra",
+        1,
+        3
+      ],
+      [
+        "dijkstra_baseline",
+        4,
+        3
+      ],
+      [
+        "dijkstra",
+        4,
+        3
+      ],
+      [
+        "dijkstra",
+        4,
+        4
+      ],
+      [
+        "dijkstra_baseline",
+        4,
+        4
+      ],
+      [
+        "dijkstra",
+        1,
+        4
+      ],
+      [
+        "dijkstra_baseline",
+        1,
+        4
+      ]
+    ],
+    "input_sha256": {
+      "data/processed/graph.json": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+      "data/processed/graph.txt": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca",
+      "benchmarks/queries.txt": "699d9207ee4ded0f4d15d9efa5b9d8533c996d5ff8008819b5d16099c1fd8d52",
+      "benchmarks/answers.json": "182d3c9b25fa02796d815c8c1c5c6301a817dd35f4d9e118e1ea9d61274b595a"
+    },
+    "protocol": "Independent sequential processes. Alternating baseline/optimized and worker-count order. Service includes allocation/reset, search and complete path reconstruction. All measured batches checked against the optimal oracle outside timers. Result bytes must match between variants, processes and worker counts."
+  },
+  "summaries": [
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 1,
+      "mean_ms": 1.7207007132,
+      "p50_ms": 1.5069585,
+      "p95_ms": 3.523646,
+      "throughput_qps": 612.6902852674743,
+      "mean_batch_wall_ms": 1720.908479,
+      "peak_rss_bytes": 7405568.0,
+      "mean_ms_min": 0.9422181554000001,
+      "mean_ms_max": 2.5637567286,
+      "throughput_qps_min": 390.00900287032,
+      "throughput_qps_max": 1061.2627826868218,
+      "groups": {
+        "short": {
+          "mean_ms": 0.7713520703592815,
+          "p95_ms": 1.880604
+        },
+        "medium": {
+          "mean_ms": 1.9849258492492494,
+          "p95_ms": 3.5105839999999997
+        },
+        "long": {
+          "mean_ms": 2.408675116816817,
+          "p95_ms": 4.1799795
+        }
+      },
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "dijkstra": {
+        "resource_policy": "fresh_per_query",
+        "distance_reset": "full",
+        "heap_storage": "local"
+      },
+      "compiler": "AppleClang 14.0.3.14030022",
+      "lto_enabled": true
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "mean_ms": 1.3273765332,
+      "p50_ms": 1.2805624999999998,
+      "p95_ms": 2.5502295,
+      "throughput_qps": 755.4821410389548,
+      "mean_batch_wall_ms": 1327.4367414,
+      "peak_rss_bytes": 7086080.0,
+      "mean_ms_min": 1.18601309,
+      "mean_ms_max": 3.4522969076,
+      "throughput_qps_min": 289.55040177358495,
+      "throughput_qps_max": 843.1305691443655,
+      "groups": {
+        "short": {
+          "mean_ms": 0.598332460778443,
+          "p95_ms": 1.4293335
+        },
+        "medium": {
+          "mean_ms": 1.4833332138138138,
+          "p95_ms": 2.4035625
+        },
+        "long": {
+          "mean_ms": 1.9026532465465467,
+          "p95_ms": 2.927083
+        }
+      },
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "dijkstra": {
+        "resource_policy": "reused_per_worker",
+        "distance_reset": "touched",
+        "heap_storage": "workspace"
+      },
+      "compiler": "AppleClang 14.0.3.14030022",
+      "lto_enabled": true
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 4,
+      "mean_ms": 1.8742276226999999,
+      "p50_ms": 1.8489375,
+      "p95_ms": 3.719333,
+      "throughput_qps": 2125.9260923951797,
+      "mean_batch_wall_ms": 470.4697791,
+      "peak_rss_bytes": 9977856.0,
+      "mean_ms_min": 1.1179793818000001,
+      "mean_ms_max": 2.0094825082,
+      "throughput_qps_min": 1983.443403738258,
+      "throughput_qps_max": 3564.302405618552,
+      "groups": {
+        "short": {
+          "mean_ms": 0.8603442287425149,
+          "p95_ms": 2.1071255
+        },
+        "medium": {
+          "mean_ms": 2.1117169942942944,
+          "p95_ms": 3.2983130000000003
+        },
+        "long": {
+          "mean_ms": 2.6536663399399396,
+          "p95_ms": 4.0671255
+        }
+      },
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "dijkstra": {
+        "resource_policy": "fresh_per_query",
+        "distance_reset": "full",
+        "heap_storage": "local"
+      },
+      "compiler": "AppleClang 14.0.3.14030022",
+      "lto_enabled": true
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "mean_ms": 2.1179614083000002,
+      "p50_ms": 2.0095,
+      "p95_ms": 4.393750000000001,
+      "throughput_qps": 1883.6861345720686,
+      "mean_batch_wall_ms": 531.4308376,
+      "peak_rss_bytes": 9175040.0,
+      "mean_ms_min": 1.8931178714,
+      "mean_ms_max": 2.2849243444,
+      "throughput_qps_min": 1744.2250632037567,
+      "throughput_qps_max": 2105.8612588460646,
+      "groups": {
+        "short": {
+          "mean_ms": 0.983595489520958,
+          "p95_ms": 2.4334170000000004
+        },
+        "medium": {
+          "mean_ms": 2.3727188726726727,
+          "p95_ms": 3.8679375
+        },
+        "long": {
+          "mean_ms": 3.0009763669669667,
+          "p95_ms": 4.865167
+        }
+      },
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "dijkstra": {
+        "resource_policy": "reused_per_worker",
+        "distance_reset": "touched",
+        "heap_storage": "workspace"
+      },
+      "compiler": "AppleClang 14.0.3.14030022",
+      "lto_enabled": true
+    }
+  ],
+  "result_sha256": "220866da29f21f6390f86422cb7b21d46e81c00cc9ec1d5dae1e18ff43743d4b",
+  "all_measured_batches_valid": true,
+  "aggregation": "Median of per-process mean/p95/throughput, each aggregated independently. Quality counts each distinct query once. All process outliers retained.",
+  "processes": [
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 1,
+      "process": 1,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 120.474375,
+        "router_setup_ms": 0.000334,
+        "run_query_total_ms": [
+          945.8505729999993,
+          948.6529590000017,
+          940.6127069999991,
+          937.1583710000007,
+          938.8161670000012
+        ],
+        "run_batch_wall_ms": [
+          945.910292,
+          948.736375,
+          940.672333,
+          937.195333,
+          938.854125
+        ],
+        "peak_rss_bytes": 7028736,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 0.9422181554000001,
+        "p50_ms": 0.957042,
+        "p95_ms": 1.803916,
+        "max_ms": 3.065875,
+        "total_query_ms": 4711.090777,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 0.9422181554000001,
+          "p50_ms": 0.957042,
+          "p95_ms": 1.803916,
+          "max_ms": 3.065875,
+          "total_query_ms": 4711.090777
+        },
+        "mean_batch_wall_ms": 942.2736916,
+        "min_batch_wall_ms": 937.195333,
+        "max_batch_wall_ms": 948.736375,
+        "throughput_qps": 1061.2627826868218,
+        "run_throughput_qps": [
+          1057.1827037484015,
+          1054.0335823004573,
+          1063.0694290867382,
+          1067.0134226970163,
+          1065.128195501085
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 942.2181554000005,
+        "min_batch_query_ms": 937.1583710000007,
+        "max_batch_query_ms": 948.6529590000017,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.43355682994011974,
+            "p50_ms": 0.400958,
+            "p95_ms": 1.052291,
+            "max_ms": 1.375167,
+            "total_query_ms": 724.039906
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 1.063038273873874,
+            "p50_ms": 1.147292,
+            "p95_ms": 1.583208,
+            "max_ms": 2.8625,
+            "total_query_ms": 1769.958726
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 1.3315868738738739,
+            "p50_ms": 1.5865,
+            "p95_ms": 1.889791,
+            "max_ms": 3.065875,
+            "total_query_ms": 2217.092145
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 1,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 112.904792,
+        "router_setup_ms": 0.000333,
+        "run_query_total_ms": [
+          1611.988468999999,
+          1057.865643000002,
+          1366.699879999998,
+          1124.134299999999,
+          1122.0654560000005
+        ],
+        "run_batch_wall_ms": [
+          1612.083291,
+          1057.904875,
+          1366.775666,
+          1124.186583,
+          1122.1145
+        ],
+        "peak_rss_bytes": 6848512,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.2565507496000001,
+        "p50_ms": 1.142458,
+        "p95_ms": 2.381709,
+        "max_ms": 52.237875,
+        "total_query_ms": 6282.753748,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 1.2565507496000001,
+          "p50_ms": 1.142458,
+          "p95_ms": 2.381709,
+          "max_ms": 52.237875,
+          "total_query_ms": 6282.753748
+        },
+        "mean_batch_wall_ms": 1256.612983,
+        "min_batch_wall_ms": 1057.904875,
+        "max_batch_wall_ms": 1612.083291,
+        "throughput_qps": 795.7899635993177,
+        "run_throughput_qps": [
+          620.3153432473608,
+          945.2645730553043,
+          731.6489639639224,
+          889.5320537729634,
+          891.1746528540538
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1256.5507495999996,
+        "min_batch_query_ms": 1057.865643000002,
+        "max_batch_query_ms": 1611.988468999999,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.549154268263473,
+            "p50_ms": 0.459541,
+            "p95_ms": 1.29375,
+            "max_ms": 9.876041,
+            "total_query_ms": 917.087628
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 1.3946372474474475,
+            "p50_ms": 1.339375,
+            "p95_ms": 2.369625,
+            "max_ms": 24.757458,
+            "total_query_ms": 2322.071017
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 1.8279850468468468,
+            "p50_ms": 1.820291,
+            "p95_ms": 2.851166,
+            "max_ms": 52.237875,
+            "total_query_ms": 3043.595103
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 4,
+      "process": 1,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 113.329917,
+        "router_setup_ms": 0.034875,
+        "run_query_total_ms": [
+          1051.575963000001,
+          1141.4033350000004,
+          1142.1574119999996,
+          1123.371006999999,
+          1131.3891920000012
+        ],
+        "run_batch_wall_ms": [
+          263.6975,
+          286.432792,
+          286.680542,
+          282.012208,
+          283.976
+        ],
+        "peak_rss_bytes": 10043392,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.1179793818000001,
+        "p50_ms": 1.116583,
+        "p95_ms": 2.185083,
+        "max_ms": 7.595125,
+        "total_query_ms": 5589.896909,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 17.6088290012,
+          "p50_ms": 18.013042,
+          "p95_ms": 21.0655,
+          "max_ms": 23.672708,
+          "total_query_ms": 88044.145006
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 18.726808382999998,
+          "p50_ms": 19.1175,
+          "p95_ms": 22.509458,
+          "max_ms": 27.89775,
+          "total_query_ms": 93634.041915
+        },
+        "mean_batch_wall_ms": 280.5598084,
+        "min_batch_wall_ms": 263.6975,
+        "max_batch_wall_ms": 286.680542,
+        "throughput_qps": 3564.302405618552,
+        "run_throughput_qps": [
+          3792.224044596555,
+          3491.2203767507176,
+          3488.203255873571,
+          3545.945784020811,
+          3521.4243457193566
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1117.9793818000003,
+        "min_batch_query_ms": 1051.575963000001,
+        "max_batch_query_ms": 1142.1574119999996,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.5177380508982036,
+            "p50_ms": 0.453625,
+            "p95_ms": 1.272792,
+            "max_ms": 2.278334,
+            "total_query_ms": 864.622545
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 1.2573018552552553,
+            "p50_ms": 1.33525,
+            "p95_ms": 2.009917,
+            "max_ms": 4.973541,
+            "total_query_ms": 2093.407589
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 1.5807007657657657,
+            "p50_ms": 1.814,
+            "p95_ms": 2.53675,
+            "max_ms": 7.595125,
+            "total_query_ms": 2631.866775
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 1,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 159.487084,
+        "router_setup_ms": 0.030583,
+        "run_query_total_ms": [
+          1800.0832920000005,
+          1563.3701300000016,
+          2945.2785790000025,
+          2207.4867480000003,
+          1730.1819449999998
+        ],
+        "run_batch_wall_ms": [
+          451.405291,
+          392.92175,
+          737.960959,
+          554.028375,
+          434.826375
+        ],
+        "peak_rss_bytes": 8323072,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 2.0492801388,
+        "p50_ms": 1.685583,
+        "p95_ms": 4.748625,
+        "max_ms": 92.216667,
+        "total_query_ms": 10246.400694,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 32.375113266599996,
+          "p50_ms": 28.109125,
+          "p95_ms": 60.988375,
+          "max_ms": 159.15325,
+          "total_query_ms": 161875.566333
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 34.424393405400004,
+          "p50_ms": 29.7895,
+          "p95_ms": 64.255833,
+          "max_ms": 165.593709,
+          "total_query_ms": 172121.967027
+        },
+        "mean_batch_wall_ms": 514.22855,
+        "min_batch_wall_ms": 392.92175,
+        "max_batch_wall_ms": 737.960959,
+        "throughput_qps": 1944.660598871844,
+        "run_throughput_qps": [
+          2215.3041179129646,
+          2545.0360027155534,
+          1355.0852356133923,
+          1804.961704353139,
+          2299.7684995534137
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 2049.280138800001,
+        "min_batch_query_ms": 1563.3701300000016,
+        "max_batch_query_ms": 2945.2785790000025,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.9727225892215569,
+            "p50_ms": 0.672167,
+            "p95_ms": 2.430375,
+            "max_ms": 86.150417,
+            "total_query_ms": 1624.446724
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.295205998798799,
+            "p50_ms": 1.985583,
+            "p95_ms": 4.619458,
+            "max_ms": 88.334792,
+            "total_query_ms": 3821.517988
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 2.883144733933934,
+            "p50_ms": 2.603625,
+            "p95_ms": 5.847166,
+            "max_ms": 92.216667,
+            "total_query_ms": 4800.435982
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 2,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 155.048875,
+        "router_setup_ms": 0.044083,
+        "run_query_total_ms": [
+          1877.2186100000013,
+          1895.5408880000005,
+          1715.7578179999996,
+          1985.1828339999972,
+          1991.8892070000002
+        ],
+        "run_batch_wall_ms": [
+          471.034875,
+          475.499959,
+          430.549875,
+          497.326125,
+          499.914625
+        ],
+        "peak_rss_bytes": 8896512,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.8931178714,
+        "p50_ms": 1.868041,
+        "p95_ms": 3.845125,
+        "max_ms": 10.44525,
+        "total_query_ms": 9465.589357,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 29.817148741,
+          "p50_ms": 30.113875,
+          "p95_ms": 37.063916,
+          "max_ms": 45.15725,
+          "total_query_ms": 149085.743705
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 31.710266612399998,
+          "p50_ms": 31.975583,
+          "p95_ms": 39.355875,
+          "max_ms": 48.349292,
+          "total_query_ms": 158551.333062
+        },
+        "mean_batch_wall_ms": 474.8650918,
+        "min_batch_wall_ms": 430.549875,
+        "max_batch_wall_ms": 499.914625,
+        "throughput_qps": 2105.8612588460646,
+        "run_throughput_qps": [
+          2122.9850549813323,
+          2103.0496029969163,
+          2322.6112886457117,
+          2010.7530043791687,
+          2000.3415583210833
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1893.1178713999998,
+        "min_batch_query_ms": 1715.7578179999996,
+        "max_batch_query_ms": 1991.8892070000002,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.8754987838323354,
+            "p50_ms": 0.758041,
+            "p95_ms": 2.167625,
+            "max_ms": 5.621459,
+            "total_query_ms": 1462.082969
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.1360519945945944,
+            "p50_ms": 2.2045,
+            "p95_ms": 3.542417,
+            "max_ms": 10.44525,
+            "total_query_ms": 3556.526571
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 2.670858748948949,
+            "p50_ms": 2.974042,
+            "p95_ms": 4.369541,
+            "max_ms": 9.136666,
+            "total_query_ms": 4446.979817
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 4,
+      "process": 2,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 836.94925,
+        "router_setup_ms": 0.122209,
+        "run_query_total_ms": [
+          1739.6330850000027,
+          1712.3028349999986,
+          2061.248332000002,
+          2106.39441,
+          1880.007601000001
+        ],
+        "run_batch_wall_ms": [
+          436.295959,
+          429.542042,
+          517.437458,
+          529.393958,
+          471.583542
+        ],
+        "peak_rss_bytes": 8355840,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.8999172525999999,
+        "p50_ms": 1.856584,
+        "p95_ms": 3.848375,
+        "max_ms": 11.804875,
+        "total_query_ms": 9499.586263,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 29.7671723804,
+          "p50_ms": 29.483875,
+          "p95_ms": 38.728583,
+          "max_ms": 62.688458,
+          "total_query_ms": 148835.861902
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 31.667089633000003,
+          "p50_ms": 31.331334,
+          "p95_ms": 41.469,
+          "max_ms": 67.2755,
+          "total_query_ms": 158335.448165
+        },
+        "mean_batch_wall_ms": 476.85059179999996,
+        "min_batch_wall_ms": 429.542042,
+        "max_batch_wall_ms": 529.393958,
+        "throughput_qps": 2097.0929200805494,
+        "run_throughput_qps": [
+          2292.0221454537927,
+          2328.060823438559,
+          1932.6007124903585,
+          1888.952423593773,
+          2120.5150539371452
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1899.917252600001,
+        "min_batch_query_ms": 1712.3028349999986,
+        "max_batch_query_ms": 2106.39441,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.8705634077844312,
+            "p50_ms": 0.772292,
+            "p95_ms": 2.176709,
+            "max_ms": 9.275041,
+            "total_query_ms": 1453.840891
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.146140287087087,
+            "p50_ms": 2.2145,
+            "p95_ms": 3.461917,
+            "max_ms": 11.804875,
+            "total_query_ms": 3573.323578
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 2.6861392156156154,
+            "p50_ms": 2.9525,
+            "p95_ms": 4.470708,
+            "max_ms": 10.543708,
+            "total_query_ms": 4472.421794
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 2,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 343.647,
+        "router_setup_ms": 0.000958,
+        "run_query_total_ms": [
+          3729.845127000001,
+          2559.586304999999,
+          4478.818343,
+          2414.078046000002,
+          4079.1567170000053
+        ],
+        "run_batch_wall_ms": [
+          3734.213417,
+          2559.860125,
+          4479.055542,
+          2414.252667,
+          4080.769042
+        ],
+        "peak_rss_bytes": 7045120,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 3.4522969076,
+        "p50_ms": 2.523208,
+        "p95_ms": 8.280375,
+        "max_ms": 628.753042,
+        "total_query_ms": 17261.484538,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 3.4522969076,
+          "p50_ms": 2.523208,
+          "p95_ms": 8.280375,
+          "max_ms": 628.753042,
+          "total_query_ms": 17261.484538
+        },
+        "mean_batch_wall_ms": 3453.6301586,
+        "min_batch_wall_ms": 2414.252667,
+        "max_batch_wall_ms": 4479.055542,
+        "throughput_qps": 289.55040177358495,
+        "run_throughput_qps": [
+          267.79401398096365,
+          390.64634439743065,
+          223.26135289527517,
+          414.20685318849434,
+          245.05184922445312
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 3452.2969076000018,
+        "min_batch_query_ms": 2414.078046000002,
+        "max_batch_query_ms": 4478.818343,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 1.4382271694610778,
+            "p50_ms": 1.009333,
+            "p95_ms": 3.864084,
+            "max_ms": 69.647875,
+            "total_query_ms": 2401.839373
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 4.02801286966967,
+            "p50_ms": 2.942,
+            "p95_ms": 8.700791,
+            "max_ms": 280.0815,
+            "total_query_ms": 6706.641428
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 4.896698941141141,
+            "p50_ms": 3.744083,
+            "p95_ms": 10.445958,
+            "max_ms": 628.753042,
+            "total_query_ms": 8153.003737
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 1,
+      "process": 2,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 219.117375,
+        "router_setup_ms": 0.000375,
+        "run_query_total_ms": [
+          1672.2501590000022,
+          1850.433583000001,
+          1359.8747040000026,
+          2784.8207520000046,
+          5151.404444999997
+        ],
+        "run_batch_wall_ms": [
+          1672.365542,
+          1850.527333,
+          1359.928125,
+          2785.57175,
+          5151.824125
+        ],
+        "peak_rss_bytes": 7651328,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 2.5637567286,
+        "p50_ms": 1.786542,
+        "p95_ms": 6.190917,
+        "max_ms": 175.907125,
+        "total_query_ms": 12818.783643,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 2.5637567286,
+          "p50_ms": 1.786542,
+          "p95_ms": 6.190917,
+          "max_ms": 175.907125,
+          "total_query_ms": 12818.783643
+        },
+        "mean_batch_wall_ms": 2564.043375,
+        "min_batch_wall_ms": 1359.928125,
+        "max_batch_wall_ms": 5151.824125,
+        "throughput_qps": 390.00900287032,
+        "run_throughput_qps": [
+          597.9553960458245,
+          540.3865061419225,
+          735.332979454337,
+          358.9927274355794,
+          194.10600512299126
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 2563.7567286000017,
+        "min_batch_query_ms": 1359.8747040000026,
+        "max_batch_query_ms": 5151.404444999997,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 1.1055120904191618,
+            "p50_ms": 0.726792,
+            "p95_ms": 3.230958,
+            "max_ms": 26.484209,
+            "total_query_ms": 1846.205191
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.9044972756756757,
+            "p50_ms": 2.040167,
+            "p95_ms": 6.138875,
+            "max_ms": 157.768167,
+            "total_query_ms": 4835.987964
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 3.6856399327327325,
+            "p50_ms": 2.620375,
+            "p95_ms": 8.343417,
+            "max_ms": 175.907125,
+            "total_query_ms": 6136.590488
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 1,
+      "process": 3,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 179.042583,
+        "router_setup_ms": 0.000416,
+        "run_query_total_ms": [
+          2649.345637000001,
+          1899.3952800000034,
+          1997.4029939999987,
+          2283.7742129999997,
+          1727.0397569999982
+        ],
+        "run_batch_wall_ms": [
+          2649.564833,
+          1900.3835,
+          1997.595958,
+          2284.029666,
+          1727.144083
+        ],
+        "peak_rss_bytes": 7159808,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 2.1113915762,
+        "p50_ms": 1.796708,
+        "p95_ms": 4.412584,
+        "max_ms": 110.406875,
+        "total_query_ms": 10556.957881,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 2.1113915762,
+          "p50_ms": 1.796708,
+          "p95_ms": 4.412584,
+          "max_ms": 110.406875,
+          "total_query_ms": 10556.957881
+        },
+        "mean_batch_wall_ms": 2111.7436079999998,
+        "min_batch_wall_ms": 1727.144083,
+        "max_batch_wall_ms": 2649.564833,
+        "throughput_qps": 473.54233544813934,
+        "run_throughput_qps": [
+          377.42046827657305,
+          526.2095782246057,
+          500.60173379665997,
+          437.8226845675305,
+          578.9904906271795
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 2111.3915762,
+        "min_batch_query_ms": 1727.0397569999982,
+        "max_batch_query_ms": 2649.345637000001,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.9248958970059881,
+            "p50_ms": 0.733125,
+            "p95_ms": 2.327333,
+            "max_ms": 17.241375,
+            "total_query_ms": 1544.576148
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.448706051651652,
+            "p50_ms": 2.099667,
+            "p95_ms": 4.545959,
+            "max_ms": 63.700458,
+            "total_query_ms": 4077.095576
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 2.96413583003003,
+            "p50_ms": 2.737458,
+            "p95_ms": 5.230209,
+            "max_ms": 110.406875,
+            "total_query_ms": 4935.286157
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 3,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 153.576334,
+        "router_setup_ms": 0.000417,
+        "run_query_total_ms": [
+          1594.9415330000006,
+          1369.9025269999997,
+          1327.6076419999984,
+          1294.1771250000006,
+          1404.382757
+        ],
+        "run_batch_wall_ms": [
+          1595.04375,
+          1369.951833,
+          1327.649208,
+          1294.222791,
+          1404.434917
+        ],
+        "peak_rss_bytes": 7127040,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.3982023168,
+        "p50_ms": 1.388,
+        "p95_ms": 2.71875,
+        "max_ms": 16.981959,
+        "total_query_ms": 6991.011584,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 1.3982023168,
+          "p50_ms": 1.388,
+          "p95_ms": 2.71875,
+          "max_ms": 16.981959,
+          "total_query_ms": 6991.011584
+        },
+        "mean_batch_wall_ms": 1398.2604998000002,
+        "min_batch_wall_ms": 1294.222791,
+        "max_batch_wall_ms": 1595.04375,
+        "throughput_qps": 715.1743184785917,
+        "run_throughput_qps": [
+          626.942050962552,
+          729.9526712630048,
+          753.2110093346283,
+          772.6644955984244,
+          712.0301467127365
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1398.2023168,
+        "min_batch_query_ms": 1294.1771250000006,
+        "max_batch_query_ms": 1594.9415330000006,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.6475106532934132,
+            "p50_ms": 0.565917,
+            "p95_ms": 1.547917,
+            "max_ms": 16.326458,
+            "total_query_ms": 1081.342791
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 1.5720291801801802,
+            "p50_ms": 1.662875,
+            "p95_ms": 2.4375,
+            "max_ms": 6.763667,
+            "total_query_ms": 2617.428585
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 1.9773214462462463,
+            "p50_ms": 2.256458,
+            "p95_ms": 3.003,
+            "max_ms": 16.981959,
+            "total_query_ms": 3292.240208
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 4,
+      "process": 3,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 156.29975,
+        "router_setup_ms": 0.043792,
+        "run_query_total_ms": [
+          1859.2800419999992,
+          1844.3024470000003,
+          2034.6902159999988,
+          2172.3810970000013,
+          2136.758738999999
+        ],
+        "run_batch_wall_ms": [
+          466.129417,
+          462.944166,
+          510.446542,
+          545.203292,
+          536.145084
+        ],
+        "peak_rss_bytes": 9912320,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 2.0094825082,
+        "p50_ms": 1.998417,
+        "p95_ms": 4.038291,
+        "max_ms": 7.029,
+        "total_query_ms": 10047.412541,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 31.6813862746,
+          "p50_ms": 32.539209,
+          "p95_ms": 38.713125,
+          "max_ms": 43.338792,
+          "total_query_ms": 158406.931373
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 33.6908687828,
+          "p50_ms": 34.388875,
+          "p95_ms": 41.209166,
+          "max_ms": 46.656208,
+          "total_query_ms": 168454.343914
+        },
+        "mean_batch_wall_ms": 504.1737002,
+        "min_batch_wall_ms": 462.944166,
+        "max_batch_wall_ms": 545.203292,
+        "throughput_qps": 1983.443403738258,
+        "run_throughput_qps": [
+          2145.3269489747736,
+          2160.0877026712546,
+          1959.0690066816046,
+          1834.1782132892915,
+          1865.1667801173012
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 2009.4825081999995,
+        "min_batch_query_ms": 1844.3024470000003,
+        "max_batch_query_ms": 2172.3810970000013,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.9265908095808383,
+            "p50_ms": 0.820417,
+            "p95_ms": 2.248042,
+            "max_ms": 3.529625,
+            "total_query_ms": 1547.406652
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.2707077441441443,
+            "p50_ms": 2.423208,
+            "p95_ms": 3.54925,
+            "max_ms": 7.029,
+            "total_query_ms": 3780.728394
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 2.834400897897898,
+            "p50_ms": 3.23825,
+            "p95_ms": 4.343834,
+            "max_ms": 6.522583,
+            "total_query_ms": 4719.277495
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 3,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 160.889917,
+        "router_setup_ms": 0.043291,
+        "run_query_total_ms": [
+          2130.3228280000008,
+          2271.853209999999,
+          2174.0295419999975,
+          2335.0730260000014,
+          2513.343116
+        ],
+        "run_batch_wall_ms": [
+          534.425167,
+          570.50675,
+          545.661875,
+          585.72775,
+          630.281
+        ],
+        "peak_rss_bytes": 9453568,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 2.2849243444,
+        "p50_ms": 2.272292,
+        "p95_ms": 4.549375,
+        "max_ms": 14.922334,
+        "total_query_ms": 11424.621722,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 35.9324118608,
+          "p50_ms": 36.402166,
+          "p95_ms": 45.59075,
+          "max_ms": 57.053292,
+          "total_query_ms": 179662.059304
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 38.2173362052,
+          "p50_ms": 38.579791,
+          "p95_ms": 48.6155,
+          "max_ms": 60.096959,
+          "total_query_ms": 191086.681026
+        },
+        "mean_batch_wall_ms": 573.3205084,
+        "min_batch_wall_ms": 534.425167,
+        "max_batch_wall_ms": 630.281,
+        "throughput_qps": 1744.2250632037567,
+        "run_throughput_qps": [
+          1871.1693642975463,
+          1752.8276396379183,
+          1832.6367404722935,
+          1707.2778266011812,
+          1586.5939160469698
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 2284.9243443999994,
+        "min_batch_query_ms": 2130.3228280000008,
+        "max_batch_query_ms": 2513.343116,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 1.0545956934131737,
+            "p50_ms": 0.928209,
+            "p95_ms": 2.547791,
+            "max_ms": 6.722042,
+            "total_query_ms": 1761.174808
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.5706170516516513,
+            "p50_ms": 2.723542,
+            "p95_ms": 3.995417,
+            "max_ms": 7.988875,
+            "total_query_ms": 4280.077391
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 3.233254968768769,
+            "p50_ms": 3.638834,
+            "p95_ms": 5.001375,
+            "max_ms": 14.922334,
+            "total_query_ms": 5383.369523
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 4,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 137.250666,
+        "router_setup_ms": 0.041125,
+        "run_query_total_ms": [
+          2086.836349000004,
+          2083.9619910000015,
+          2514.6075899999987,
+          2107.279976,
+          2140.5274829999994
+        ],
+        "run_batch_wall_ms": [
+          523.598042,
+          523.128875,
+          630.618834,
+          528.839375,
+          536.9805
+        ],
+        "peak_rss_bytes": 9502720,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 2.1866426778,
+        "p50_ms": 2.150959,
+        "p95_ms": 4.238125,
+        "max_ms": 22.712,
+        "total_query_ms": 10933.213389,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 34.404225126200004,
+          "p50_ms": 34.233,
+          "p95_ms": 44.832875,
+          "max_ms": 69.58475,
+          "total_query_ms": 172021.125631
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 36.590867804000005,
+          "p50_ms": 36.398333,
+          "p95_ms": 47.275,
+          "max_ms": 75.420334,
+          "total_query_ms": 182954.33902
+        },
+        "mean_batch_wall_ms": 548.6331252,
+        "min_batch_wall_ms": 523.128875,
+        "max_batch_wall_ms": 630.618834,
+        "throughput_qps": 1822.7116702722928,
+        "run_throughput_qps": [
+          1909.8619929522197,
+          1911.574848549509,
+          1585.7439487765125,
+          1890.933329236311,
+          1862.2650170723145
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 2186.642677800001,
+        "min_batch_query_ms": 2083.9619910000015,
+        "max_batch_query_ms": 2514.6075899999987,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.9944683898203592,
+            "p50_ms": 0.887125,
+            "p95_ms": 2.436459,
+            "max_ms": 9.233791,
+            "total_query_ms": 1660.762211
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.4502317465465464,
+            "p50_ms": 2.586542,
+            "p95_ms": 3.740458,
+            "max_ms": 15.321792,
+            "total_query_ms": 4079.635858
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 3.118808,
+            "p50_ms": 3.527334,
+            "p95_ms": 4.728959,
+            "max_ms": 22.712,
+            "total_query_ms": 5192.81532
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 4,
+      "process": 4,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 4,
+        "queue_capacity": 64,
+        "executor": "worker_pool",
+        "graph_load_ms": 138.046125,
+        "router_setup_ms": 0.040834,
+        "run_query_total_ms": [
+          1846.3154059999981,
+          1851.8500769999998,
+          1883.0083070000017,
+          1815.5518040000004,
+          1845.964370000002
+        ],
+        "run_batch_wall_ms": [
+          463.515958,
+          464.938333,
+          472.651083,
+          456.231541,
+          463.107917
+        ],
+        "peak_rss_bytes": 10371072,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.8485379927999999,
+        "p50_ms": 1.841291,
+        "p95_ms": 3.590291,
+        "max_ms": 13.261125,
+        "total_query_ms": 9242.689964,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 29.1040644004,
+          "p50_ms": 29.90675,
+          "p95_ms": 34.041958,
+          "max_ms": 39.208167,
+          "total_query_ms": 145520.322002
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 30.9526023932,
+          "p50_ms": 31.767958,
+          "p95_ms": 36.332584,
+          "max_ms": 49.228208,
+          "total_query_ms": 154763.011966
+        },
+        "mean_batch_wall_ms": 464.0889664,
+        "min_batch_wall_ms": 456.231541,
+        "max_batch_wall_ms": 472.651083,
+        "throughput_qps": 2154.7592647098104,
+        "run_throughput_qps": [
+          2157.423024473302,
+          2150.822870524638,
+          2115.725608101484,
+          2191.8695007542233,
+          2159.3239141277736
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1848.5379928000002,
+        "min_batch_query_ms": 1815.5518040000004,
+        "max_batch_query_ms": 1883.0083070000017,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.8501250497005988,
+            "p50_ms": 0.777542,
+            "p95_ms": 2.037542,
+            "max_ms": 7.091292,
+            "total_query_ms": 1419.708833
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 2.0772937015015014,
+            "p50_ms": 2.234334,
+            "p95_ms": 3.134709,
+            "max_ms": 8.350625,
+            "total_query_ms": 3458.694013
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 2.6211934642642643,
+            "p50_ms": 3.057625,
+            "p95_ms": 3.790417,
+            "max_ms": 13.261125,
+            "total_query_ms": 4364.287118
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 4,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 130.8445,
+        "router_setup_ms": 0.00025,
+        "run_query_total_ms": [
+          1148.6289400000005,
+          1114.851947,
+          1107.9961729999998,
+          1096.2325159999991,
+          1462.355873999999
+        ],
+        "run_batch_wall_ms": [
+          1148.664583,
+          1114.884791,
+          1108.027333,
+          1096.266542,
+          1462.436334
+        ],
+        "peak_rss_bytes": 7667712,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.18601309,
+        "p50_ms": 1.173125,
+        "p95_ms": 2.235375,
+        "max_ms": 28.868458,
+        "total_query_ms": 5930.06545,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 1.18601309,
+          "p50_ms": 1.173125,
+          "p95_ms": 2.235375,
+          "max_ms": 28.868458,
+          "total_query_ms": 5930.06545
+        },
+        "mean_batch_wall_ms": 1186.0559165999998,
+        "min_batch_wall_ms": 1096.266542,
+        "max_batch_wall_ms": 1462.436334,
+        "throughput_qps": 843.1305691443655,
+        "run_throughput_qps": [
+          870.5761584363222,
+          896.953665591802,
+          902.5048121263269,
+          912.1869195931366,
+          683.7904507369823
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1186.0130899999997,
+        "min_batch_query_ms": 1096.2325159999991,
+        "max_batch_query_ms": 1462.355873999999,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.549102797005988,
+            "p50_ms": 0.481959,
+            "p95_ms": 1.31075,
+            "max_ms": 15.149041,
+            "total_query_ms": 917.001671
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 1.3376232720720722,
+            "p50_ms": 1.397292,
+            "p95_ms": 1.995833,
+            "max_ms": 28.868458,
+            "total_query_ms": 2227.142748
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 1.6732258444444443,
+            "p50_ms": 1.903959,
+            "p95_ms": 2.549334,
+            "max_ms": 13.125375,
+            "total_query_ms": 2785.921031
+          }
+        }
+      }
+    },
+    {
+      "algorithm": "dijkstra_baseline",
+      "workers": 1,
+      "process": 4,
+      "measurement": {
+        "schema_version": 2,
+        "algorithm": "dijkstra_baseline",
+        "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "build_type": "Release",
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true,
+        "clock": "std::chrono::steady_clock",
+        "query_count": 1000,
+        "repetitions": 5,
+        "warmup_batches": 2,
+        "threads": 1,
+        "queue_capacity": 64,
+        "executor": "direct",
+        "graph_load_ms": 142.077959,
+        "router_setup_ms": 0.000209,
+        "run_query_total_ms": [
+          1374.9831919999988,
+          1562.1388109999998,
+          1466.5559499999968,
+          1173.726453000001,
+          1072.6448449999998
+        ],
+        "run_batch_wall_ms": [
+          1375.045,
+          1562.219041,
+          1466.6365,
+          1173.773334,
+          1072.692875
+        ],
+        "peak_rss_bytes": 8126464,
+        "diagnostics_enabled": false,
+        "max_hpa_workspace_bytes_per_worker": 0,
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "hpa": null,
+        "sample_count": 5000,
+        "mean_ms": 1.3300098502000002,
+        "p50_ms": 1.227375,
+        "p95_ms": 2.634708,
+        "max_ms": 45.148416,
+        "total_query_ms": 6650.049251,
+        "wait": {
+          "sample_count": 5000,
+          "mean_ms": 0.0,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "max_ms": 0.0,
+          "total_query_ms": 0.0
+        },
+        "latency": {
+          "sample_count": 5000,
+          "mean_ms": 1.3300098502000002,
+          "p50_ms": 1.227375,
+          "p95_ms": 2.634708,
+          "max_ms": 45.148416,
+          "total_query_ms": 6650.049251
+        },
+        "mean_batch_wall_ms": 1330.0733500000001,
+        "min_batch_wall_ms": 1072.692875,
+        "max_batch_wall_ms": 1562.219041,
+        "throughput_qps": 751.8382350868093,
+        "run_throughput_qps": [
+          727.2489263987724,
+          640.1151015032341,
+          681.8322058669615,
+          851.9532443220422,
+          932.2332825227352
+        ],
+        "validation_mode": "optimal",
+        "mean_batch_query_ms": 1330.0098501999992,
+        "min_batch_query_ms": 1072.6448449999998,
+        "max_batch_query_ms": 1562.1388109999998,
+        "validation": [
+          {
+            "repetition": 1,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 2,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 3,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 4,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          },
+          {
+            "repetition": 5,
+            "ok": true,
+            "error_count": 0,
+            "max_gap_percent": 1.7763568394002505e-13,
+            "max_extra_distance_m": 1.4551915228366852e-10
+          }
+        ],
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "ok": true,
+        "groups": {
+          "short": {
+            "sample_count": 1670,
+            "mean_ms": 0.6178082437125749,
+            "p50_ms": 0.502375,
+            "p95_ms": 1.433875,
+            "max_ms": 23.775458,
+            "total_query_ms": 1031.739767
+          },
+          "medium": {
+            "sample_count": 1665,
+            "mean_ms": 1.521145646846847,
+            "p50_ms": 1.462416,
+            "p95_ms": 2.475209,
+            "max_ms": 45.148416,
+            "total_query_ms": 2532.707502
+          },
+          "long": {
+            "sample_count": 1665,
+            "mean_ms": 1.8532144036036038,
+            "p50_ms": 1.953166,
+            "p95_ms": 3.12975,
+            "max_ms": 18.960083,
+            "total_query_ms": 3085.601982
+          }
+        }
+      }
+    }
+  ],
+  "source_hashes": {
+    "created_at_utc": "2026-09-18T08:58:20.363613+00:00",
+    "sha256": {
+      "build/busmap-bench": "2150d6438383e9397ae669cf3d5e0a65ff8a4628a10387e056e4e79100f51407",
+      "cpp/src/dijkstra.cpp": "3159a46abf81bc8725b61a910372cc1ee85d54893ccc53b5575986f60be7c725",
+      "cpp/src/Dijkstra_baseline.cpp": "56ea887283f965dd9269afaa24021788b2df370822c0ad01809a757ca12a34e4",
+      "cpp/include/busmap/search_workspace.hpp": "1381dedd6796f2bf9161a7c659f8a566ae1fad522066c9f2f68f9f15953b73b4"
+    }
+  },
+  "raw_artifacts": "artifacts/dijkstra-variants-20260918-164323",
+  "previous_trial": {
+    "manifest": {
+      "created_at_utc": "2026-09-18T08:50:03.462772+00:00",
+      "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+      "arguments": {
+        "binary": "/Users/demen100ns/Documents/Code Training/Project/BusMap/build/busmap-bench",
+        "output_dir": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/dijkstra-variants-20260918-164323/comparison",
+        "processes": 4,
+        "repetitions": 10,
+        "warmup": 2,
+        "threads": [
+          1,
+          4
+        ]
+      },
+      "binary_sha256": "fb2ea08d0dcc76baf2906a4919ac14364552c9fdc24f4949d3a5e4b6574670de",
+      "queue_capacity": 64,
+      "schedule": [
+        [
+          "dijkstra_baseline",
+          1,
+          1
+        ],
+        [
+          "dijkstra",
+          1,
+          1
+        ],
+        [
+          "dijkstra_baseline",
+          4,
+          1
+        ],
+        [
+          "dijkstra",
+          4,
+          1
+        ],
+        [
+          "dijkstra",
+          4,
+          2
+        ],
+        [
+          "dijkstra_baseline",
+          4,
+          2
+        ],
+        [
+          "dijkstra",
+          1,
+          2
+        ],
+        [
+          "dijkstra_baseline",
+          1,
+          2
+        ],
+        [
+          "dijkstra_baseline",
+          1,
+          3
+        ],
+        [
+          "dijkstra",
+          1,
+          3
+        ],
+        [
+          "dijkstra_baseline",
+          4,
+          3
+        ],
+        [
+          "dijkstra",
+          4,
+          3
+        ],
+        [
+          "dijkstra",
+          4,
+          4
+        ],
+        [
+          "dijkstra_baseline",
+          4,
+          4
+        ],
+        [
+          "dijkstra",
+          1,
+          4
+        ],
+        [
+          "dijkstra_baseline",
+          1,
+          4
+        ]
+      ],
+      "input_sha256": {
+        "data/processed/graph.json": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+        "data/processed/graph.txt": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca",
+        "benchmarks/queries.txt": "699d9207ee4ded0f4d15d9efa5b9d8533c996d5ff8008819b5d16099c1fd8d52",
+        "benchmarks/answers.json": "182d3c9b25fa02796d815c8c1c5c6301a817dd35f4d9e118e1ea9d61274b595a"
+      },
+      "protocol": "Independent sequential processes. Alternating baseline/optimized and worker-count order. Service includes allocation/reset, search and complete path reconstruction. All measured batches checked against the optimal oracle outside timers. Result bytes must match between variants, processes and worker counts."
+    },
+    "summaries": [
+      {
+        "algorithm": "dijkstra_baseline",
+        "workers": 1,
+        "mean_ms": 1.06912685995,
+        "p50_ms": 1.0760420000000002,
+        "p95_ms": 2.0464374999999997,
+        "throughput_qps": 936.2885140335662,
+        "mean_batch_wall_ms": 1069.1649958,
+        "peak_rss_bytes": 7577600.0,
+        "mean_ms_min": 0.9539323146,
+        "mean_ms_max": 1.6465864769,
+        "throughput_qps_min": 607.278289570868,
+        "throughput_qps_max": 1048.2511581522467,
+        "groups": {
+          "short": {
+            "mean_ms": 0.49261489999999997,
+            "p95_ms": 1.1912295
+          },
+          "medium": {
+            "mean_ms": 1.2056822312312312,
+            "p95_ms": 1.7849374999999998
+          },
+          "long": {
+            "mean_ms": 1.5108147157657656,
+            "p95_ms": 2.1308540000000002
+          }
+        },
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true
+      },
+      {
+        "algorithm": "dijkstra",
+        "workers": 1,
+        "mean_ms": 1.24699196185,
+        "p50_ms": 1.2090830000000001,
+        "p95_ms": 2.422833,
+        "throughput_qps": 815.9223472539616,
+        "mean_batch_wall_ms": 1247.0545730000001,
+        "peak_rss_bytes": 7241728.0,
+        "mean_ms_min": 1.0416085057,
+        "mean_ms_max": 1.5080581225,
+        "throughput_qps_min": 663.0752374933561,
+        "throughput_qps_max": 960.0169576166571,
+        "groups": {
+          "short": {
+            "mean_ms": 0.5692705658682635,
+            "p95_ms": 1.3685
+          },
+          "medium": {
+            "mean_ms": 1.4021750034534535,
+            "p95_ms": 2.227583
+          },
+          "long": {
+            "mean_ms": 1.7715655156156156,
+            "p95_ms": 2.8085620000000002
+          }
+        },
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true
+      },
+      {
+        "algorithm": "dijkstra_baseline",
+        "workers": 4,
+        "mean_ms": 2.0686886553,
+        "p50_ms": 1.8061245000000001,
+        "p95_ms": 4.4479165,
+        "throughput_qps": 2421.6682053428576,
+        "mean_batch_wall_ms": 519.00327705,
+        "peak_rss_bytes": 10059776.0,
+        "mean_ms_min": 1.0979308213,
+        "mean_ms_max": 3.6608334027,
+        "throughput_qps_min": 1086.0327248324268,
+        "throughput_qps_max": 3628.0942767568517,
+        "groups": {
+          "short": {
+            "mean_ms": 0.942599048502994,
+            "p95_ms": 2.4205205000000003
+          },
+          "medium": {
+            "mean_ms": 2.3493727836336338,
+            "p95_ms": 4.3625
+          },
+          "long": {
+            "mean_ms": 2.9174757842342345,
+            "p95_ms": 5.434374999999999
+          }
+        },
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "dijkstra": {
+          "resource_policy": "fresh_per_query",
+          "distance_reset": "full",
+          "heap_storage": "local"
+        },
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true
+      },
+      {
+        "algorithm": "dijkstra",
+        "workers": 4,
+        "mean_ms": 2.3537987039,
+        "p50_ms": 2.0846875,
+        "p95_ms": 4.933771,
+        "throughput_qps": 2149.077384896438,
+        "mean_batch_wall_ms": 590.31228975,
+        "peak_rss_bytes": 9469952.0,
+        "mean_ms_min": 1.1897393529,
+        "mean_ms_max": 4.1246219438,
+        "throughput_qps_min": 966.6046938184354,
+        "throughput_qps_max": 3348.9549512062854,
+        "groups": {
+          "short": {
+            "mean_ms": 1.1167630609281436,
+            "p95_ms": 2.6323119999999998
+          },
+          "medium": {
+            "mean_ms": 2.620687580930931,
+            "p95_ms": 4.773270999999999
+          },
+          "long": {
+            "mean_ms": 3.3276602915915916,
+            "p95_ms": 5.995416499999999
+          }
+        },
+        "quality": {
+          "mean_gap_percent": 1.716404796070492e-14,
+          "max_gap_percent": 1.7763568394002505e-13,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 6.661338147750939e-14,
+          "optimal_found_count": 1000,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1.4551915228366852e-10,
+          "undefined_relative_gap_count": 0
+        },
+        "dijkstra": {
+          "resource_policy": "reused_per_worker",
+          "distance_reset": "touched",
+          "heap_storage": "workspace"
+        },
+        "compiler": "AppleClang 14.0.3.14030022",
+        "lto_enabled": true
+      }
+    ],
+    "result_sha256": "220866da29f21f6390f86422cb7b21d46e81c00cc9ec1d5dae1e18ff43743d4b",
+    "all_measured_batches_valid": true,
+    "aggregation": "Median of per-process mean/p95/throughput, each aggregated independently. Quality counts each distinct query once. All process outliers retained."
+  },
+  "reset_profile": {
+    "rows": [
+      {
+        "batch": "0",
+        "reset_parent": "1",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "16183.6",
+        "mean_search_path_ns": "1.26029e+06"
+      },
+      {
+        "batch": "1",
+        "reset_parent": "0",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "6335.26",
+        "mean_search_path_ns": "1.04454e+06"
+      },
+      {
+        "batch": "2",
+        "reset_parent": "1",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "12981.6",
+        "mean_search_path_ns": "1.04915e+06"
+      },
+      {
+        "batch": "3",
+        "reset_parent": "0",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "7033.95",
+        "mean_search_path_ns": "1.03529e+06"
+      },
+      {
+        "batch": "4",
+        "reset_parent": "1",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "12298.9",
+        "mean_search_path_ns": "1.00057e+06"
+      },
+      {
+        "batch": "5",
+        "reset_parent": "0",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "6066.18",
+        "mean_search_path_ns": "996546"
+      },
+      {
+        "batch": "6",
+        "reset_parent": "1",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "12465.7",
+        "mean_search_path_ns": "1.01686e+06"
+      },
+      {
+        "batch": "7",
+        "reset_parent": "0",
+        "mean_touched": "17863.5",
+        "mean_reset_ns": "6282.96",
+        "mean_search_path_ns": "1.04716e+06"
+      }
+    ],
+    "interpretation": "Separate instrumented run, eight alternating batches after two warm-ups. Not query benchmark data.",
+    "median_distance_and_parent_reset_ns": 12723.650000000001,
+    "median_distance_only_reset_ns": 6309.110000000001
+  },
+  "previous_implementation_same_paths": true,
+  "validation": {
+    "release_suites_passed": 8,
+    "sanitizer_cpp_suites_passed": 5,
+    "random_graphs": 100,
+    "oracle": "Floyd-Warshall all pairs, fixed seed 162164"
+  },
+  "limitations": [
+    "Uncontrolled machine scheduling/load; substantial process-to-process variation. No outlier exclusion.",
+    "Touched resets and heap reuse reduce resource initialization but do not guarantee lower total query latency.",
+    "Service time includes full result path construction; queue wait is excluded. Throughput uses batch wall time.",
+    "Peak RSS includes graph, workers and all retained results for a batch, not just workspace storage.",
+    "The first and final trials use different binaries and durations. No causal end-to-end speedup claim is made from their medians."
+  ]
+}

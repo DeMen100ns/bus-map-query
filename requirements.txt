@@ -1,0 +1,2 @@
+# Required only to rebuild projected graph distances.
+pyproj==3.8.0

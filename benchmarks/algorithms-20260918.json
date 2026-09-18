@@ -1,0 +1,1127 @@
+{
+  "manifest": {
+    "created_at_utc": "2026-09-18T08:28:43.515082+00:00",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "build": {
+      "created_at_utc": "2026-09-18T08:27:36.908691+00:00",
+      "git_commit": "25faada97463988680818bbe7728bf9e21a9d843",
+      "git_status": " M CMakeLists.txt\n M README.md\n M benchmarks/README.md\n M benchmarks/hpa-recommended.json\n M cpp/apps/benchmark_main.cpp\n M cpp/include/busmap/bihpa.hpp\n M cpp/include/busmap/hpa.hpp\n M cpp/src/bihpa.cpp\n M cpp/src/hpa.cpp\n M docs/BIHPA_DESIGN.md\n M docs/HPA_DESIGN.md\n M tests/cpp/test_bihpa.cpp\n M tests/cpp/test_hpa.cpp\n M tests/test_benchmark.py\n?? benchmarks/heuristic-cache-comparison.json\n?? benchmarks/lto-comparison.json\n?? docs/HEURISTIC_CACHE_RESULTS.md\n?? docs/LTO_RESULTS.md\n?? scripts/compare_hpa_binaries.py\n",
+      "binary_sha256": "cf873f7f92d22f2de16db96bd58e729f0bbf6b672d17386b856dafc9fc9b6a6b",
+      "source_sha256": {
+        "CMakeLists.txt": "ab2c2a0570f5015f41411cc451d8416b7a1d3e0c4b31dbd954f20ac683404824",
+        "cpp/apps/query_main.cpp": "75a7ad1e9f46085a9559f7d1b17ba62181970a2f12306097ccf0993738ac1c87",
+        "cpp/apps/benchmark_main.cpp": "33f8bb53a638c04b79e6a2e74824ee3159aabac901978d19d77fc0652ac158fa",
+        "cpp/src/dijkstra.cpp": "f3d9af9cad4875c85841327a218d25230957ddebca5944b303bb41d05a844a6d",
+        "cpp/src/hpa.cpp": "cba8bc710e2966052385928d6440aa4c3df7995df3e9b3a1ab919b9656951435",
+        "cpp/src/graph.cpp": "429c06b8dffbc0c3a06ae61f6a551f5fe490c8307f83a09c0a0ffa7d62a49b63",
+        "cpp/src/bihpa.cpp": "df282b513de31e972584b38aa627206e3bed72944ec4f40f38415d4506361e76",
+        "cpp/src/router.cpp": "1011faa47f229682d7eed422c709c71a8fb5ae82562cb93bac3bf740622459c5",
+        "cpp/src/graph_loader.cpp": "5c14a06486c0606dbe68612a492f383b09068eed1d1ec4a4180232675b8cc1ef",
+        "cpp/src/query_pool.cpp": "1f93eba863caa4894fc5a767bede20de41a5a153f1c18da6b36f7a18926e8037",
+        "cpp/src/astar.cpp": "6d1ba734ab6309bd57ba31d79222d4ad2f5aab249cd1eed30d4a808c7050b3c5",
+        "cpp/apps/ordered_results.hpp": "3b415d0e44e952c20ca4e947ee96f16572ac07415874b347b2fa00b85655bd06",
+        "cpp/src/text_reader.hpp": "295d471efd494c8f4ed133ed10c88001bee9dd67461af209211d06f0f444955c",
+        "cpp/include/busmap/query_pool.hpp": "5f472feb19fab9786a7e29085c8374293a636ed461b6055b281d9dd5137a1967",
+        "cpp/include/busmap/astar.hpp": "986eeddd025c27bc0fa2ce2e9714efbc042935ac50be84f54c2ed20a94bac5e0",
+        "cpp/include/busmap/graph_loader.hpp": "b4a843fb526a6dcd099f9200e4bf1ab685610884cdd277ca8672d81d6860fe9a",
+        "cpp/include/busmap/hpa.hpp": "f43afe506571534056c2f5a11ea41c9018eb697019365cad3f5dd64cd07a4053",
+        "cpp/include/busmap/graph.hpp": "5f74f8b20bd75df53db05a2f9267cea407783929c2e34066bebccc729b762f80",
+        "cpp/include/busmap/bihpa.hpp": "7fd1e60835c003a043b7e5e6791f60d802a34c8f96ce1ab48f45ba367fe9ea3b",
+        "cpp/include/busmap/router.hpp": "154bd9a49186498afe0793c626450a6b7e67ed9507590aabdddba44d5f147fe4",
+        "cpp/include/busmap/dijkstra.hpp": "4b01e3c1731adcfb3f17818a9e4a3e319af88f7557a66c900e40fdde4b05689f",
+        "cpp/include/busmap/query.hpp": "c5cc45d12af31a36499ee904688dcadcd9586fd2d5fe28cfe11528c9242ceda9",
+        "cpp/include/busmap/search_workspace.hpp": "99c7c6499fa2d4b914dfb1b83ea09d3620b6df132a94880f04ddfba637573f00",
+        "scripts/benchmark.py": "c102e835d885c703cf0d717d58c3f36dd29d51c6bacca9e9cf09145c3fa94d56"
+      }
+    },
+    "query_count": 1000,
+    "processes_per_configuration": 4,
+    "warmup_batches": 2,
+    "measured_batches": 10,
+    "queue_capacity": 64,
+    "hpa_cluster_size_m": 3500,
+    "hpa_weight": 1.05,
+    "schedule_seed": 162164,
+    "files": {
+      "data/processed/graph.json": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+      "data/processed/graph.txt": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca",
+      "benchmarks/queries.txt": "699d9207ee4ded0f4d15d9efa5b9d8533c996d5ff8008819b5d16099c1fd8d52",
+      "benchmarks/answers.json": "182d3c9b25fa02796d815c8c1c5c6301a817dd35f4d9e118e1ea9d61274b595a"
+    },
+    "protocol": "32 sequential independent processes; algorithm order rotates across four rounds. One/four-worker order alternates within each algorithm. Each process has two warm-up and ten measured batches. Service includes full path reconstruction. File I/O and checker are outside timers. Graph load and setup/index build are separate. No retuning on this fixed evaluation set.",
+    "schedule": [
+      [
+        "dijkstra",
+        1,
+        1
+      ],
+      [
+        "dijkstra",
+        4,
+        1
+      ],
+      [
+        "hpa",
+        4,
+        1
+      ],
+      [
+        "hpa",
+        1,
+        1
+      ],
+      [
+        "astar",
+        1,
+        1
+      ],
+      [
+        "astar",
+        4,
+        1
+      ],
+      [
+        "bihpa",
+        4,
+        1
+      ],
+      [
+        "bihpa",
+        1,
+        1
+      ],
+      [
+        "hpa",
+        1,
+        2
+      ],
+      [
+        "hpa",
+        4,
+        2
+      ],
+      [
+        "astar",
+        4,
+        2
+      ],
+      [
+        "astar",
+        1,
+        2
+      ],
+      [
+        "bihpa",
+        1,
+        2
+      ],
+      [
+        "bihpa",
+        4,
+        2
+      ],
+      [
+        "dijkstra",
+        4,
+        2
+      ],
+      [
+        "dijkstra",
+        1,
+        2
+      ],
+      [
+        "astar",
+        1,
+        3
+      ],
+      [
+        "astar",
+        4,
+        3
+      ],
+      [
+        "bihpa",
+        4,
+        3
+      ],
+      [
+        "bihpa",
+        1,
+        3
+      ],
+      [
+        "dijkstra",
+        1,
+        3
+      ],
+      [
+        "dijkstra",
+        4,
+        3
+      ],
+      [
+        "hpa",
+        4,
+        3
+      ],
+      [
+        "hpa",
+        1,
+        3
+      ],
+      [
+        "bihpa",
+        1,
+        4
+      ],
+      [
+        "bihpa",
+        4,
+        4
+      ],
+      [
+        "dijkstra",
+        4,
+        4
+      ],
+      [
+        "dijkstra",
+        1,
+        4
+      ],
+      [
+        "hpa",
+        1,
+        4
+      ],
+      [
+        "hpa",
+        4,
+        4
+      ],
+      [
+        "astar",
+        4,
+        4
+      ],
+      [
+        "astar",
+        1,
+        4
+      ]
+    ],
+    "environment": {
+      "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+      "machine": "arm64",
+      "logical_cpu_count": 8,
+      "python_version": "3.14.5"
+    },
+    "compiler": "AppleClang 14.0.3.14030022",
+    "compile_flags": "-O3 -DNDEBUG -std=c++20 -flto=thin",
+    "raw_session": "artifacts/algorithms-20260918-162732",
+    "runner_sha256": "039ad21e401fa2c72c2f45a6b50dfc2c920d776fe6507e2ab07b5f7d9462cf75"
+  },
+  "summaries": [
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "mean_ms": 1.2579659103,
+      "p50_ms": 1.238604,
+      "p95_ms": 2.533542,
+      "throughput_qps": 831.3303611387506,
+      "mean_batch_wall_ms": 1258.0938126,
+      "graph_load_ms": 158.1693125,
+      "router_setup_ms": 0.00043749999999999995,
+      "peak_rss_bytes": 7634944.0,
+      "mean_ms_min": 0.9929543799999999,
+      "mean_ms_max": 1.7780741749,
+      "throughput_qps_min": 562.3748386151238,
+      "throughput_qps_max": 1007.0492104347937,
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.5788448158682634,
+          "p95_ms": 1.4080415,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 1.2365358238340068e-14,
+            "p95_gap_percent": 4.440892098500626e-14,
+            "max_gap_percent": 8.881784197001252e-14
+          }
+        },
+        "medium": {
+          "mean_ms": 1.4185792345345347,
+          "p95_ms": 2.3064584999999997,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9737298215558338e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.3322676295501878e-13
+          }
+        },
+        "long": {
+          "mean_ms": 1.7786234908408407,
+          "p95_ms": 2.87175,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9403897907863097e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.7763568394002505e-13
+          }
+        }
+      },
+      "hpa": null,
+      "hpa_workspace_bytes_per_worker": null
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "mean_ms": 1.8500309669,
+      "p50_ms": 1.76125,
+      "p95_ms": 3.8866250000000004,
+      "throughput_qps": 2486.7676751084273,
+      "mean_batch_wall_ms": 464.35019155,
+      "graph_load_ms": 153.7192295,
+      "router_setup_ms": 0.048021,
+      "peak_rss_bytes": 9068544.0,
+      "mean_ms_min": 1.115338133,
+      "mean_ms_max": 2.6381089132,
+      "throughput_qps_min": 1510.3583681552195,
+      "throughput_qps_max": 3572.9491994670652,
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.8412707937125747,
+          "p95_ms": 2.1644164999999997,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 1.2365358238340068e-14,
+            "p95_gap_percent": 4.440892098500626e-14,
+            "max_gap_percent": 8.881784197001252e-14
+          }
+        },
+        "medium": {
+          "mean_ms": 2.0807687172672673,
+          "p95_ms": 3.4868125,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9737298215558338e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.3322676295501878e-13
+          }
+        },
+        "long": {
+          "mean_ms": 2.6310826995495495,
+          "p95_ms": 4.3698545,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9403897907863097e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.7763568394002505e-13
+          }
+        }
+      },
+      "hpa": null,
+      "hpa_workspace_bytes_per_worker": null
+    },
+    {
+      "algorithm": "astar",
+      "workers": 1,
+      "mean_ms": 0.6480787543,
+      "p50_ms": 0.33418749999999997,
+      "p95_ms": 2.402604,
+      "throughput_qps": 1553.4275276400458,
+      "mean_batch_wall_ms": 648.11704575,
+      "graph_load_ms": 120.8953545,
+      "router_setup_ms": 0.00035400000000000004,
+      "peak_rss_bytes": 7684096.0,
+      "mean_ms_min": 0.573728744,
+      "mean_ms_max": 0.703466916,
+      "throughput_qps_min": 1421.4456282278384,
+      "throughput_qps_max": 1742.8853302776668,
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.16972427499999998,
+          "p95_ms": 0.5814790000000001,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 1.2365358238340068e-14,
+            "p95_gap_percent": 4.440892098500626e-14,
+            "max_gap_percent": 8.881784197001252e-14
+          }
+        },
+        "medium": {
+          "mean_ms": 0.6023936737237238,
+          "p95_ms": 1.4985205000000001,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9737298215558338e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.3322676295501878e-13
+          }
+        },
+        "long": {
+          "mean_ms": 1.171332431981982,
+          "p95_ms": 2.8286670000000003,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9403897907863097e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.7763568394002505e-13
+          }
+        }
+      },
+      "hpa": null,
+      "hpa_workspace_bytes_per_worker": null
+    },
+    {
+      "algorithm": "astar",
+      "workers": 4,
+      "mean_ms": 1.0434093852,
+      "p50_ms": 0.5351665,
+      "p95_ms": 3.874417,
+      "throughput_qps": 4377.150228991565,
+      "mean_batch_wall_ms": 262.29765835,
+      "graph_load_ms": 163.3359795,
+      "router_setup_ms": 0.044208,
+      "peak_rss_bytes": 9535488.0,
+      "mean_ms_min": 0.6669307713,
+      "mean_ms_max": 1.4400701098,
+      "throughput_qps_min": 2762.9180126691463,
+      "throughput_qps_max": 5963.889836241193,
+      "quality": {
+        "mean_gap_percent": 1.716404796070492e-14,
+        "max_gap_percent": 1.7763568394002505e-13,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 6.661338147750939e-14,
+        "optimal_found_count": 1000,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1.4551915228366852e-10,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.277405825,
+          "p95_ms": 0.944021,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 1.2365358238340068e-14,
+            "p95_gap_percent": 4.440892098500626e-14,
+            "max_gap_percent": 8.881784197001252e-14
+          }
+        },
+        "medium": {
+          "mean_ms": 0.9810042378378379,
+          "p95_ms": 2.452542,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9737298215558338e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.3322676295501878e-13
+          }
+        },
+        "long": {
+          "mean_ms": 1.8805055737237237,
+          "p95_ms": 4.719813,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 1.9403897907863097e-14,
+            "p95_gap_percent": 8.881784197001252e-14,
+            "max_gap_percent": 1.7763568394002505e-13
+          }
+        }
+      },
+      "hpa": null,
+      "hpa_workspace_bytes_per_worker": null
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 1,
+      "mean_ms": 0.17071169284999999,
+      "p50_ms": 0.12383350000000001,
+      "p95_ms": 0.4970205,
+      "throughput_qps": 6066.313148549629,
+      "mean_batch_wall_ms": 170.74508959999997,
+      "graph_load_ms": 143.554542,
+      "router_setup_ms": 18.022750000000002,
+      "peak_rss_bytes": 15761408.0,
+      "mean_ms_min": 0.1383337211,
+      "mean_ms_max": 0.21739113980000002,
+      "throughput_qps_min": 4599.12018416956,
+      "throughput_qps_max": 7227.621892207963,
+      "quality": {
+        "mean_gap_percent": 0.005638696709888457,
+        "max_gap_percent": 1.25158638656222,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.014112450412073763,
+        "optimal_found_count": 901,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 115.32954945016536,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.08458418023952095,
+          "p95_ms": 0.2732915,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 0.00967847421985087,
+            "p95_gap_percent": 0.02043547170875737,
+            "max_gap_percent": 1.25158638656222
+          }
+        },
+        "medium": {
+          "mean_ms": 0.1767866608108108,
+          "p95_ms": 0.4316245,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.004897572457773346,
+            "p95_gap_percent": 0.02579449448560922,
+            "max_gap_percent": 0.27058753352335874
+          }
+        },
+        "long": {
+          "mean_ms": 0.2510228786786787,
+          "p95_ms": 0.5770204999999999,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.0023279119880472757,
+            "p95_gap_percent": 0.005342819270248711,
+            "max_gap_percent": 0.25549116842202846
+          }
+        }
+      },
+      "hpa": {
+        "index_build_ms": 18.0062295,
+        "index_bytes": 3187800.0,
+        "path_storage_bytes": 2466740.0
+      },
+      "hpa_workspace_bytes_per_worker": 1189236
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 4,
+      "mean_ms": 0.22605254019999999,
+      "p50_ms": 0.1599375,
+      "p95_ms": 0.652792,
+      "throughput_qps": 18850.18467432827,
+      "mean_batch_wall_ms": 57.122670850000006,
+      "graph_load_ms": 137.4098335,
+      "router_setup_ms": 17.9007705,
+      "peak_rss_bytes": 17227776.0,
+      "mean_ms_min": 0.15703645559999999,
+      "mean_ms_max": 0.2868079753,
+      "throughput_qps_min": 13808.638166212852,
+      "throughput_qps_max": 25166.33639708984,
+      "quality": {
+        "mean_gap_percent": 0.005638696709888457,
+        "max_gap_percent": 1.25158638656222,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.014112450412073763,
+        "optimal_found_count": 901,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 115.32954945016536,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.11299565449101796,
+          "p95_ms": 0.35302049999999996,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 0.00967847421985087,
+            "p95_gap_percent": 0.02043547170875737,
+            "max_gap_percent": 1.25158638656222
+          }
+        },
+        "medium": {
+          "mean_ms": 0.23152814984984985,
+          "p95_ms": 0.556771,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.004897572457773346,
+            "p95_gap_percent": 0.02579449448560922,
+            "max_gap_percent": 0.27058753352335874
+          }
+        },
+        "long": {
+          "mean_ms": 0.3328080342342342,
+          "p95_ms": 0.7745409999999999,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.0023279119880472757,
+            "p95_gap_percent": 0.005342819270248711,
+            "max_gap_percent": 0.25549116842202846
+          }
+        }
+      },
+      "hpa": {
+        "index_build_ms": 17.769624999999998,
+        "index_bytes": 3187800.0,
+        "path_storage_bytes": 2466740.0
+      },
+      "hpa_workspace_bytes_per_worker": 1189236
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 1,
+      "mean_ms": 0.1974788336,
+      "p50_ms": 0.12289549999999999,
+      "p95_ms": 0.6266455,
+      "throughput_qps": 5561.258574605712,
+      "mean_batch_wall_ms": 197.5232791,
+      "graph_load_ms": 146.211729,
+      "router_setup_ms": 18.181729,
+      "peak_rss_bytes": 16015360.0,
+      "mean_ms_min": 0.13784785119999998,
+      "mean_ms_max": 0.3592031812,
+      "throughput_qps_min": 2783.3915940986008,
+      "throughput_qps_max": 7252.692040632845,
+      "quality": {
+        "mean_gap_percent": 0.029488419189689474,
+        "max_gap_percent": 1.6223137055232595,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.06520849109172833,
+        "optimal_found_count": 886,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1059.24591869094,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.0873575005988024,
+          "p95_ms": 0.2419165,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 0.012253733796707423,
+            "p95_gap_percent": 0.0019775278149447573,
+            "max_gap_percent": 1.0417726408471273
+          }
+        },
+        "medium": {
+          "mean_ms": 0.16635531186186187,
+          "p95_ms": 0.42010400000000003,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.035964153937128984,
+            "p95_gap_percent": 0.10918054136914712,
+            "max_gap_percent": 1.6223137055232595
+          }
+        },
+        "long": {
+          "mean_ms": 0.33905438303303304,
+          "p95_ms": 0.7785,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.04029912564722295,
+            "p95_gap_percent": 0.13570833190101883,
+            "max_gap_percent": 1.5929216143234282
+          }
+        }
+      },
+      "hpa": {
+        "index_build_ms": 18.1652915,
+        "index_bytes": 4697784.0,
+        "path_storage_bytes": 2466740.0
+      },
+      "hpa_workspace_bytes_per_worker": 2480888
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 4,
+      "mean_ms": 0.23042479385000003,
+      "p50_ms": 0.1418335,
+      "p95_ms": 0.7297705,
+      "throughput_qps": 18391.304345267956,
+      "mean_batch_wall_ms": 58.3006501,
+      "graph_load_ms": 143.223,
+      "router_setup_ms": 17.822270500000002,
+      "peak_rss_bytes": 24297472.0,
+      "mean_ms_min": 0.1649897644,
+      "mean_ms_max": 0.3019649051,
+      "throughput_qps_min": 13107.459010973507,
+      "throughput_qps_max": 23933.45774997744,
+      "quality": {
+        "mean_gap_percent": 0.029488419189689474,
+        "max_gap_percent": 1.6223137055232595,
+        "p50_gap_percent": 0.0,
+        "p95_gap_percent": 0.06520849109172833,
+        "optimal_found_count": 886,
+        "valid_found_count": 1000,
+        "max_extra_distance_m": 1059.24591869094,
+        "undefined_relative_gap_count": 0
+      },
+      "groups": {
+        "short": {
+          "mean_ms": 0.10231352844311377,
+          "p95_ms": 0.288104,
+          "quality": {
+            "query_count": 334,
+            "mean_gap_percent": 0.012253733796707423,
+            "p95_gap_percent": 0.0019775278149447573,
+            "max_gap_percent": 1.0417726408471273
+          }
+        },
+        "medium": {
+          "mean_ms": 0.19215547042042042,
+          "p95_ms": 0.4875,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.035964153937128984,
+            "p95_gap_percent": 0.10918054136914712,
+            "max_gap_percent": 1.6223137055232595
+          }
+        },
+        "long": {
+          "mean_ms": 0.3971901012012012,
+          "p95_ms": 0.9216044999999999,
+          "quality": {
+            "query_count": 333,
+            "mean_gap_percent": 0.04029912564722295,
+            "p95_gap_percent": 0.13570833190101883,
+            "max_gap_percent": 1.5929216143234282
+          }
+        }
+      },
+      "hpa": {
+        "index_build_ms": 17.755375,
+        "index_bytes": 4697784.0,
+        "path_storage_bytes": 2466740.0
+      },
+      "hpa_workspace_bytes_per_worker": 2480888
+    }
+  ],
+  "result_sha256": {
+    "dijkstra": "220866da29f21f6390f86422cb7b21d46e81c00cc9ec1d5dae1e18ff43743d4b",
+    "hpa": "d08391bc3e560de98d3809cc28dd549c5ee3f418899e928a2c3eda99d7368a5a",
+    "astar": "220866da29f21f6390f86422cb7b21d46e81c00cc9ec1d5dae1e18ff43743d4b",
+    "bihpa": "8dfd7c65035781ad033b5e868a4875c647924963809a6137b3033aad561563b6"
+  },
+  "all_batches_valid": true,
+  "all_results_identical_across_workers_and_repetitions": true,
+  "aggregation": "Median of per-process means/p95/throughput; process ranges retained. Quality counts each distinct query once, never repeated batches.",
+  "limitations": "Shared desktop, no CPU pinning or frequency locking. All outliers retained. One worker is a direct Router call; four use QueryPool. Peak RSS includes retained paths and is not index size.",
+  "measured_batches_validated": 320,
+  "measured_query_calls": 320000,
+  "process_metrics": [
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 1,
+      "mean_ms": 0.9929543799999999,
+      "p95_ms": 1.887292,
+      "throughput_qps": 1007.0492104347937,
+      "mean_batch_wall_ms": 993.0001331,
+      "graph_load_ms": 144.935667,
+      "router_setup_ms": 0.000209,
+      "peak_rss_bytes": 7798784
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 1,
+      "mean_ms": 1.115338133,
+      "p95_ms": 2.224458,
+      "throughput_qps": 3572.9491994670652,
+      "mean_batch_wall_ms": 279.8808335,
+      "graph_load_ms": 120.276292,
+      "router_setup_ms": 0.04,
+      "peak_rss_bytes": 9043968
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 4,
+      "process": 1,
+      "mean_ms": 0.15703645559999999,
+      "p95_ms": 0.455292,
+      "throughput_qps": 25166.33639708984,
+      "mean_batch_wall_ms": 39.7356208,
+      "graph_load_ms": 111.171708,
+      "router_setup_ms": 14.825833,
+      "peak_rss_bytes": 17219584
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 1,
+      "process": 1,
+      "mean_ms": 0.1389791118,
+      "p95_ms": 0.40525,
+      "throughput_qps": 7193.999842704632,
+      "mean_batch_wall_ms": 139.00472919999999,
+      "graph_load_ms": 116.820625,
+      "router_setup_ms": 14.065875,
+      "peak_rss_bytes": 15777792
+    },
+    {
+      "algorithm": "astar",
+      "workers": 1,
+      "process": 1,
+      "mean_ms": 0.573728744,
+      "p95_ms": 2.152959,
+      "throughput_qps": 1742.8853302776668,
+      "mean_batch_wall_ms": 573.7612123,
+      "graph_load_ms": 111.282959,
+      "router_setup_ms": 0.000333,
+      "peak_rss_bytes": 7667712
+    },
+    {
+      "algorithm": "astar",
+      "workers": 4,
+      "process": 1,
+      "mean_ms": 0.6687827105999999,
+      "p95_ms": 2.41525,
+      "throughput_qps": 5949.321591660224,
+      "mean_batch_wall_ms": 168.0863918,
+      "graph_load_ms": 115.562583,
+      "router_setup_ms": 0.041875,
+      "peak_rss_bytes": 9551872
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 4,
+      "process": 1,
+      "mean_ms": 0.1649897644,
+      "p95_ms": 0.520167,
+      "throughput_qps": 23933.45774997744,
+      "mean_batch_wall_ms": 41.782512600000004,
+      "graph_load_ms": 116.6035,
+      "router_setup_ms": 14.343625,
+      "peak_rss_bytes": 24313856
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 1,
+      "process": 1,
+      "mean_ms": 0.13835114510000002,
+      "p95_ms": 0.438708,
+      "throughput_qps": 7226.384474348825,
+      "mean_batch_wall_ms": 138.3817874,
+      "graph_load_ms": 111.944125,
+      "router_setup_ms": 14.479416,
+      "peak_rss_bytes": 16187392
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 1,
+      "process": 2,
+      "mean_ms": 0.1383337211,
+      "p95_ms": 0.400042,
+      "throughput_qps": 7227.621892207963,
+      "mean_batch_wall_ms": 138.3580955,
+      "graph_load_ms": 113.054667,
+      "router_setup_ms": 14.395958,
+      "peak_rss_bytes": 15745024
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 4,
+      "process": 2,
+      "mean_ms": 0.1653172833,
+      "p95_ms": 0.469459,
+      "throughput_qps": 23883.539067691294,
+      "mean_batch_wall_ms": 41.8698417,
+      "graph_load_ms": 109.487875,
+      "router_setup_ms": 15.089958,
+      "peak_rss_bytes": 17235968
+    },
+    {
+      "algorithm": "astar",
+      "workers": 4,
+      "process": 2,
+      "mean_ms": 0.6669307713,
+      "p95_ms": 2.424959,
+      "throughput_qps": 5963.889836241193,
+      "mean_batch_wall_ms": 167.6758001,
+      "graph_load_ms": 585.783833,
+      "router_setup_ms": 0.050333,
+      "peak_rss_bytes": 8519680
+    },
+    {
+      "algorithm": "astar",
+      "workers": 1,
+      "process": 2,
+      "mean_ms": 0.594802229,
+      "p95_ms": 2.198916,
+      "throughput_qps": 1681.1197787545505,
+      "mean_batch_wall_ms": 594.8416125,
+      "graph_load_ms": 108.069625,
+      "router_setup_ms": 0.00025,
+      "peak_rss_bytes": 7667712
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 1,
+      "process": 2,
+      "mean_ms": 0.13784785119999998,
+      "p95_ms": 0.4375,
+      "throughput_qps": 7252.692040632845,
+      "mean_batch_wall_ms": 137.87983749999998,
+      "graph_load_ms": 114.553291,
+      "router_setup_ms": 15.103375,
+      "peak_rss_bytes": 16023552
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 4,
+      "process": 2,
+      "mean_ms": 0.17034389430000002,
+      "p95_ms": 0.534625,
+      "throughput_qps": 23164.54510705622,
+      "mean_batch_wall_ms": 43.169421,
+      "graph_load_ms": 109.018458,
+      "router_setup_ms": 14.383041,
+      "peak_rss_bytes": 24264704
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 2,
+      "mean_ms": 1.1728317202,
+      "p95_ms": 2.324125,
+      "throughput_qps": 3397.065538353995,
+      "mean_batch_wall_ms": 294.3717125,
+      "graph_load_ms": 117.170334,
+      "router_setup_ms": 0.041375,
+      "peak_rss_bytes": 9093120
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 2,
+      "mean_ms": 0.994515764,
+      "p95_ms": 1.899834,
+      "throughput_qps": 1005.4696752998861,
+      "mean_batch_wall_ms": 994.5600793,
+      "graph_load_ms": 119.905625,
+      "router_setup_ms": 0.000292,
+      "peak_rss_bytes": 7684096
+    },
+    {
+      "algorithm": "astar",
+      "workers": 1,
+      "process": 3,
+      "mean_ms": 0.703466916,
+      "p95_ms": 2.606292,
+      "throughput_qps": 1421.4456282278384,
+      "mean_batch_wall_ms": 703.509146,
+      "graph_load_ms": 130.50775,
+      "router_setup_ms": 0.000375,
+      "peak_rss_bytes": 7700480
+    },
+    {
+      "algorithm": "astar",
+      "workers": 4,
+      "process": 3,
+      "mean_ms": 1.4400701098,
+      "p95_ms": 5.364042,
+      "throughput_qps": 2762.9180126691463,
+      "mean_batch_wall_ms": 361.9361832,
+      "graph_load_ms": 161.75225,
+      "router_setup_ms": 0.042625,
+      "peak_rss_bytes": 9519104
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 4,
+      "process": 3,
+      "mean_ms": 0.3019649051,
+      "p95_ms": 0.960875,
+      "throughput_qps": 13107.459010973507,
+      "mean_batch_wall_ms": 76.29243770000001,
+      "graph_load_ms": 169.8425,
+      "router_setup_ms": 21.2615,
+      "peak_rss_bytes": 24281088
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 1,
+      "process": 3,
+      "mean_ms": 0.25660652209999996,
+      "p95_ms": 0.814583,
+      "throughput_qps": 3896.1326748625993,
+      "mean_batch_wall_ms": 256.6647708,
+      "graph_load_ms": 211.373917,
+      "router_setup_ms": 28.043208,
+      "peak_rss_bytes": 16007168
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 3,
+      "mean_ms": 1.7780741749,
+      "p95_ms": 3.928667,
+      "throughput_qps": 562.3748386151238,
+      "mean_batch_wall_ms": 1778.1734376,
+      "graph_load_ms": 313.128208,
+      "router_setup_ms": 0.000833,
+      "peak_rss_bytes": 7192576
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 3,
+      "mean_ms": 2.5272302135999998,
+      "p95_ms": 5.553792,
+      "throughput_qps": 1576.4698118628598,
+      "mean_batch_wall_ms": 634.3286706,
+      "graph_load_ms": 214.003375,
+      "router_setup_ms": 0.054667,
+      "peak_rss_bytes": 8388608
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 4,
+      "process": 3,
+      "mean_ms": 0.2868079753,
+      "p95_ms": 0.836125,
+      "throughput_qps": 13808.638166212852,
+      "mean_batch_wall_ms": 72.41843750000001,
+      "graph_load_ms": 168.2305,
+      "router_setup_ms": 20.711583,
+      "peak_rss_bytes": 17219584
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 1,
+      "process": 3,
+      "mean_ms": 0.2024442739,
+      "p95_ms": 0.588791,
+      "throughput_qps": 4938.6264543946245,
+      "mean_batch_wall_ms": 202.48545,
+      "graph_load_ms": 170.288459,
+      "router_setup_ms": 21.649542,
+      "peak_rss_bytes": 15990784
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 1,
+      "process": 4,
+      "mean_ms": 0.3592031812,
+      "p95_ms": 0.969709,
+      "throughput_qps": 2783.3915940986008,
+      "mean_batch_wall_ms": 359.2739168,
+      "graph_load_ms": 177.870167,
+      "router_setup_ms": 21.260083,
+      "peak_rss_bytes": 15958016
+    },
+    {
+      "algorithm": "bihpa",
+      "workers": 4,
+      "process": 4,
+      "mean_ms": 0.29050569340000004,
+      "p95_ms": 0.924916,
+      "throughput_qps": 13618.063583479694,
+      "mean_batch_wall_ms": 73.4318792,
+      "graph_load_ms": 238.060583,
+      "router_setup_ms": 23.914166,
+      "peak_rss_bytes": 24870912
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 4,
+      "process": 4,
+      "mean_ms": 2.6381089132,
+      "p95_ms": 5.449125,
+      "throughput_qps": 1510.3583681552195,
+      "mean_batch_wall_ms": 662.0945208,
+      "graph_load_ms": 187.162167,
+      "router_setup_ms": 0.147917,
+      "peak_rss_bytes": 9355264
+    },
+    {
+      "algorithm": "dijkstra",
+      "workers": 1,
+      "process": 4,
+      "mean_ms": 1.5214160566000001,
+      "p95_ms": 3.16725,
+      "throughput_qps": 657.1910469776151,
+      "mean_batch_wall_ms": 1521.6275459,
+      "graph_load_ms": 171.402958,
+      "router_setup_ms": 0.000583,
+      "peak_rss_bytes": 7585792
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 1,
+      "process": 4,
+      "mean_ms": 0.21739113980000002,
+      "p95_ms": 0.620709,
+      "throughput_qps": 4599.12018416956,
+      "mean_batch_wall_ms": 217.4328915,
+      "graph_load_ms": 190.417875,
+      "router_setup_ms": 23.434708,
+      "peak_rss_bytes": 15745024
+    },
+    {
+      "algorithm": "hpa",
+      "workers": 4,
+      "process": 4,
+      "mean_ms": 0.28678779709999996,
+      "p95_ms": 0.837125,
+      "throughput_qps": 13816.830280965243,
+      "mean_batch_wall_ms": 72.3755,
+      "graph_load_ms": 163.647959,
+      "router_setup_ms": 20.985667,
+      "peak_rss_bytes": 17399808
+    },
+    {
+      "algorithm": "astar",
+      "workers": 4,
+      "process": 4,
+      "mean_ms": 1.4180360598,
+      "p95_ms": 5.323875,
+      "throughput_qps": 2804.978866322906,
+      "mean_batch_wall_ms": 356.5089249,
+      "graph_load_ms": 164.919709,
+      "router_setup_ms": 0.045791,
+      "peak_rss_bytes": 9584640
+    },
+    {
+      "algorithm": "astar",
+      "workers": 1,
+      "process": 4,
+      "mean_ms": 0.7013552796,
+      "p95_ms": 2.651041,
+      "throughput_qps": 1425.7352765255414,
+      "mean_batch_wall_ms": 701.392479,
+      "graph_load_ms": 162.928,
+      "router_setup_ms": 0.000375,
+      "peak_rss_bytes": 7716864
+    }
+  ],
+  "throughput_speedup_4_vs_1": {
+    "dijkstra": 2.9913110255014264,
+    "astar": 2.8177370048548678,
+    "hpa": 3.1073543703946584,
+    "bihpa": 3.3070399620057014
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "generator": "busmap-data queries v1",
+  "seed": 162163,
+  "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+  "node_count": 38148,
+  "pool_size": 3000,
+  "query_count": 1000,
+  "max_targets_per_source": 10,
+  "groups": {
+    "short": {
+      "count": 334,
+      "pool_min_m": 25.785350774345535,
+      "pool_max_m": 20177.78653550883
+    },
+    "medium": {
+      "count": 333,
+      "pool_min_m": 20182.71530339864,
+      "pool_max_m": 43155.704396078065
+    },
+    "long": {
+      "count": 333,
+      "pool_min_m": 43174.822416542454,
+      "pool_max_m": 268418.54522797395
+    }
+  },
+  "sampling": "Shuffled sources over the whole ID domain; reachable non-self targets; distance tertiles of the pool, not population quantiles.",
+  "files": {
+    "queries.txt": "699d9207ee4ded0f4d15d9efa5b9d8533c996d5ff8008819b5d16099c1fd8d52",
+    "answers.json": "182d3c9b25fa02796d815c8c1c5c6301a817dd35f4d9e118e1ea9d61274b595a"
+  }
+}

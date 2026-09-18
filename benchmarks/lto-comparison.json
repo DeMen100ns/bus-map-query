@@ -1,0 +1,910 @@
+{
+  "manifest": {
+    "created_at_utc": "2026-09-18T08:16:01.907165+00:00",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "arguments": {
+      "before": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/lto-20260918-161414/release-no-lto/busmap-bench",
+      "after": "/Users/demen100ns/Documents/Code Training/Project/BusMap/build/busmap-bench",
+      "output_dir": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/lto-20260918-161414/tune",
+      "queries": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/hpa-tuning-20260918/tune/queries.txt",
+      "answers": "/Users/demen100ns/Documents/Code Training/Project/BusMap/artifacts/hpa-tuning-20260918/tune/answers.json",
+      "processes": 4,
+      "repetitions": 8,
+      "warmup": 2,
+      "threads": [
+        1,
+        4
+      ],
+      "seed": 162164,
+      "hpa_cluster_size": 3500,
+      "hpa_weight": 1.05
+    },
+    "binary_sha256": {
+      "before": "81c401daa75b3796ab34a20135fc7ec0eea0c53d1e95b2f4abe6dccaea3e5c37",
+      "after": "cf873f7f92d22f2de16db96bd58e729f0bbf6b672d17386b856dafc9fc9b6a6b"
+    },
+    "input_sha256": {
+      "queries": "b070b14a4e183b458888471699e098a43d7d91331fcc49a887a4eb466043a8de",
+      "answers": "3ebcfecd287687fb0b8b815647125d8f89dc41b78f7c0a6667dd9fcfd359a333",
+      "graph_json": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+      "graph_text": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca"
+    },
+    "schedule": [
+      [
+        "hpa",
+        1,
+        1,
+        "before"
+      ],
+      [
+        "hpa",
+        1,
+        1,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        2,
+        "before"
+      ],
+      [
+        "hpa",
+        1,
+        2,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        3,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        3,
+        "before"
+      ],
+      [
+        "hpa",
+        1,
+        4,
+        "after"
+      ],
+      [
+        "hpa",
+        1,
+        4,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        1,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        1,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        2,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        2,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        3,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        3,
+        "before"
+      ],
+      [
+        "bihpa",
+        1,
+        4,
+        "after"
+      ],
+      [
+        "bihpa",
+        1,
+        4,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        1,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        1,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        2,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        2,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        3,
+        "before"
+      ],
+      [
+        "hpa",
+        4,
+        3,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        4,
+        "after"
+      ],
+      [
+        "hpa",
+        4,
+        4,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        1,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        1,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        2,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        2,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        3,
+        "before"
+      ],
+      [
+        "bihpa",
+        4,
+        3,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        4,
+        "after"
+      ],
+      [
+        "bihpa",
+        4,
+        4,
+        "before"
+      ]
+    ],
+    "protocol": "Independent sequential processes; balanced before/after order when process count is even. Fixed L/w; service includes complete path reconstruction. All measured paths checked outside timers. Diagnostics are separate passes. Result bytes must match before/after and across worker counts."
+  },
+  "summaries": [
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "version": "before",
+      "mean_ms": 0.1374772069375,
+      "p95_ms": 0.39912499999999995,
+      "throughput_qps": 7272.67896101948,
+      "max_hpa_workspace_bytes_per_worker": 1164660.0,
+      "peak_rss_bytes": 15835136.0,
+      "mean_ms_min": 0.13702976662500002,
+      "mean_ms_max": 0.14079759562500002,
+      "index_bytes": 3187800,
+      "index_build_ms": 15.7325625,
+      "lto_enabled": false
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "version": "after",
+      "mean_ms": 0.139454435125,
+      "p95_ms": 0.405146,
+      "throughput_qps": 7169.2546789034,
+      "max_hpa_workspace_bytes_per_worker": 1164660.0,
+      "peak_rss_bytes": 15728640.0,
+      "mean_ms_min": 0.13800283325,
+      "mean_ms_max": 0.144685782125,
+      "index_bytes": 3187800,
+      "index_build_ms": 14.2118955,
+      "lto_enabled": true
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "version": "before",
+      "mean_ms": 0.149337687375,
+      "p95_ms": 0.489583,
+      "throughput_qps": 6696.801967862295,
+      "max_hpa_workspace_bytes_per_worker": 2480888.0,
+      "peak_rss_bytes": 16195584.0,
+      "mean_ms_min": 0.14548091625,
+      "mean_ms_max": 0.154588553125,
+      "index_bytes": 4697784,
+      "index_build_ms": 16.160083,
+      "lto_enabled": false
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "version": "after",
+      "mean_ms": 0.145814074625,
+      "p95_ms": 0.48272899999999996,
+      "throughput_qps": 6856.665046141921,
+      "max_hpa_workspace_bytes_per_worker": 2480888.0,
+      "peak_rss_bytes": 16203776.0,
+      "mean_ms_min": 0.14510990262499998,
+      "mean_ms_max": 0.154315418625,
+      "index_bytes": 4697784,
+      "index_build_ms": 15.0570205,
+      "lto_enabled": true
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "version": "before",
+      "mean_ms": 0.1737710074375,
+      "p95_ms": 0.509771,
+      "throughput_qps": 22736.160643681043,
+      "max_hpa_workspace_bytes_per_worker": 1164660.0,
+      "peak_rss_bytes": 17604608.0,
+      "mean_ms_min": 0.159274843875,
+      "mean_ms_max": 0.19790456025,
+      "index_bytes": 3187800,
+      "index_build_ms": 16.2469585,
+      "lto_enabled": false
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "version": "after",
+      "mean_ms": 0.1640778191875,
+      "p95_ms": 0.4804795,
+      "throughput_qps": 24039.96108320491,
+      "max_hpa_workspace_bytes_per_worker": 1164660.0,
+      "peak_rss_bytes": 17571840.0,
+      "mean_ms_min": 0.156478956625,
+      "mean_ms_max": 0.177782684375,
+      "index_bytes": 3187800,
+      "index_build_ms": 14.4323755,
+      "lto_enabled": true
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "version": "before",
+      "mean_ms": 0.2229800420625,
+      "p95_ms": 0.7167085,
+      "throughput_qps": 17636.51776647464,
+      "max_hpa_workspace_bytes_per_worker": 2480888.0,
+      "peak_rss_bytes": 24494080.0,
+      "mean_ms_min": 0.19550331037500002,
+      "mean_ms_max": 0.34648674599999996,
+      "index_bytes": 4697784,
+      "index_build_ms": 18.5553335,
+      "lto_enabled": false
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "version": "after",
+      "mean_ms": 0.22556589999999999,
+      "p95_ms": 0.7280625000000001,
+      "throughput_qps": 17412.77102313024,
+      "max_hpa_workspace_bytes_per_worker": 2480888.0,
+      "peak_rss_bytes": 24371200.0,
+      "mean_ms_min": 0.19614152725,
+      "mean_ms_max": 0.269764925125,
+      "index_bytes": 4697784,
+      "index_build_ms": 16.747646500000002,
+      "lto_enabled": true
+    }
+  ],
+  "diagnostics": {
+    "hpa": {
+      "before": {
+        "heuristic_requests": 1466.631,
+        "heuristic_evaluations": 1157.457,
+        "search_ns": 168439.575,
+        "reconstruction_ns": 3206.415,
+        "overlay_expanded": 1072.502
+      },
+      "after": {
+        "heuristic_requests": 1466.631,
+        "heuristic_evaluations": 1157.457,
+        "search_ns": 179931.452,
+        "reconstruction_ns": 4154.51,
+        "overlay_expanded": 1072.502
+      }
+    },
+    "bihpa": {
+      "before": {
+        "heuristic_requests": 2725.664,
+        "heuristic_evaluations": 2190.27,
+        "search_ns": 193494.934,
+        "reconstruction_ns": 4641.876,
+        "overlay_expanded": 959.731
+      },
+      "after": {
+        "heuristic_requests": 2725.664,
+        "heuristic_evaluations": 2190.27,
+        "search_ns": 197999.523,
+        "reconstruction_ns": 4151.261,
+        "overlay_expanded": 959.731
+      }
+    }
+  },
+  "result_sha256": {
+    "hpa": "c25a9c76750479cf134731e7c04dbd6f9cee38c1400d22c4f6b99b5b159e0667",
+    "bihpa": "90110b4701a75d89b6f542865d606a04dde6df7f51685c94e72bb76417127f9e"
+  },
+  "schema_version": 1,
+  "comparison": "Release -O3 with ThinLTO disabled/enabled; same source, compiler and other compile/link flags.",
+  "builds": {
+    "binary_sha256": {
+      "before": "81c401daa75b3796ab34a20135fc7ec0eea0c53d1e95b2f4abe6dccaea3e5c37",
+      "after": "cf873f7f92d22f2de16db96bd58e729f0bbf6b672d17386b856dafc9fc9b6a6b"
+    },
+    "source_sha256": {
+      "cpp/apps/ordered_results.hpp": "3b415d0e44e952c20ca4e947ee96f16572ac07415874b347b2fa00b85655bd06",
+      "cpp/apps/query_main.cpp": "75a7ad1e9f46085a9559f7d1b17ba62181970a2f12306097ccf0993738ac1c87",
+      "cpp/apps/benchmark_main.cpp": "33f8bb53a638c04b79e6a2e74824ee3159aabac901978d19d77fc0652ac158fa",
+      "cpp/src/dijkstra.cpp": "f3d9af9cad4875c85841327a218d25230957ddebca5944b303bb41d05a844a6d",
+      "cpp/src/hpa.cpp": "cba8bc710e2966052385928d6440aa4c3df7995df3e9b3a1ab919b9656951435",
+      "cpp/src/graph.cpp": "429c06b8dffbc0c3a06ae61f6a551f5fe490c8307f83a09c0a0ffa7d62a49b63",
+      "cpp/src/bihpa.cpp": "df282b513de31e972584b38aa627206e3bed72944ec4f40f38415d4506361e76",
+      "cpp/src/router.cpp": "1011faa47f229682d7eed422c709c71a8fb5ae82562cb93bac3bf740622459c5",
+      "cpp/src/graph_loader.cpp": "5c14a06486c0606dbe68612a492f383b09068eed1d1ec4a4180232675b8cc1ef",
+      "cpp/src/text_reader.hpp": "295d471efd494c8f4ed133ed10c88001bee9dd67461af209211d06f0f444955c",
+      "cpp/src/query_pool.cpp": "1f93eba863caa4894fc5a767bede20de41a5a153f1c18da6b36f7a18926e8037",
+      "cpp/src/astar.cpp": "6d1ba734ab6309bd57ba31d79222d4ad2f5aab249cd1eed30d4a808c7050b3c5",
+      "cpp/include/busmap/query_pool.hpp": "5f472feb19fab9786a7e29085c8374293a636ed461b6055b281d9dd5137a1967",
+      "cpp/include/busmap/astar.hpp": "986eeddd025c27bc0fa2ce2e9714efbc042935ac50be84f54c2ed20a94bac5e0",
+      "cpp/include/busmap/graph_loader.hpp": "b4a843fb526a6dcd099f9200e4bf1ab685610884cdd277ca8672d81d6860fe9a",
+      "cpp/include/busmap/hpa.hpp": "f43afe506571534056c2f5a11ea41c9018eb697019365cad3f5dd64cd07a4053",
+      "cpp/include/busmap/graph.hpp": "5f74f8b20bd75df53db05a2f9267cea407783929c2e34066bebccc729b762f80",
+      "cpp/include/busmap/bihpa.hpp": "7fd1e60835c003a043b7e5e6791f60d802a34c8f96ce1ab48f45ba367fe9ea3b",
+      "cpp/include/busmap/router.hpp": "154bd9a49186498afe0793c626450a6b7e67ed9507590aabdddba44d5f147fe4",
+      "cpp/include/busmap/dijkstra.hpp": "4b01e3c1731adcfb3f17818a9e4a3e319af88f7557a66c900e40fdde4b05689f",
+      "cpp/include/busmap/query.hpp": "c5cc45d12af31a36499ee904688dcadcd9586fd2d5fe28cfe11528c9242ceda9",
+      "cpp/include/busmap/search_workspace.hpp": "99c7c6499fa2d4b914dfb1b83ea09d3620b6df132a94880f04ddfba637573f00",
+      "tests/test_hpa_tuning.py": "85cba5b125964c5813e3e8a96ac2b9cf9c0e2e3c04718f1f4fe0fb623db9aaed",
+      "tests/test_concurrency.py": "6f888f572fa8d5679ec7db6f755ebc158203ce5af2bc0980971c9b17ac1757c9",
+      "tests/test_handoff.py": "2995ead054c152977ee470d0f57fca4c237b83a862f8b88ecfd3dc32af364937",
+      "tests/test_benchmark.py": "9f7efc5c689578ab8c9bd1f3ff30d0b23fb35f676e0f29656069c40e886d4cf3",
+      "tests/test_graph_data.py": "3fd32d7bf3c78fe7f768c54c32e6f07eb12b165acf55ee8d1fc07fb97e85bfcc",
+      "tests/test_cli.py": "8184fe6b72933a535cca598b6e02c697e5eee6ebe9679ac7df76ad6c2b5766ac",
+      "tests/cpp/test_hpa.cpp": "67b68cfa8afa2f37976a063f7c7c060dcd8f37e1bdca0a18f9f6ca383d353d24",
+      "tests/cpp/test_query_pool.cpp": "bc966680ef3d651646e0ec7880956501777a7b86b23e49ed883da2032a5cb900",
+      "tests/cpp/test_bihpa.cpp": "33c113fe9d9b57d66d104c8a7309ef2b6e6f22a6db1c44800fbeb41436a2cbd1",
+      "tests/cpp/test_loader.cpp": "87befb095497d6d775bbe78a33bb7e97436efee46bf3967ac8b16eaa9d0f0547"
+    },
+    "cmake_sha256": "ab2c2a0570f5015f41411cc451d8416b7a1d3e0c4b31dbd954f20ac683404824"
+  },
+  "binary_bytes": {
+    "before": 175321,
+    "after": 167529
+  },
+  "compile_command_examples": {
+    "off": [
+      "/Library/Developer/CommandLineTools/usr/bin/c++  -I\"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/include\" -O3 -DNDEBUG -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wall -Wextra -Wpedantic -o CMakeFiles/busmap.dir/cpp/src/hpa.cpp.o -c \"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/src/hpa.cpp\"",
+      "/Library/Developer/CommandLineTools/usr/bin/c++ -DBUSMAP_BUILD_TYPE=\\\"Release\\\" -DBUSMAP_COMPILER=\"\\\"AppleClang 14.0.3.14030022\\\"\" -DBUSMAP_LTO_ENABLED=0 -I\"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/src\" -I\"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/include\" -O3 -DNDEBUG -std=c++20 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/busmap-bench.dir/cpp/apps/benchmark_main.cpp.o -c \"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/apps/benchmark_main.cpp\""
+    ],
+    "on": [
+      "/Library/Developer/CommandLineTools/usr/bin/c++  -I\"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/include\" -O3 -DNDEBUG -std=c++20 -flto=thin -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wall -Wextra -Wpedantic -o CMakeFiles/busmap.dir/cpp/src/hpa.cpp.o -c \"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/src/hpa.cpp\"",
+      "/Library/Developer/CommandLineTools/usr/bin/c++ -DBUSMAP_BUILD_TYPE=\\\"Release\\\" -DBUSMAP_COMPILER=\"\\\"AppleClang 14.0.3.14030022\\\"\" -DBUSMAP_LTO_ENABLED=1 -I\"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/src\" -I\"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/include\" -O3 -DNDEBUG -std=c++20 -flto=thin -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -o CMakeFiles/busmap-bench.dir/cpp/apps/benchmark_main.cpp.o -c \"/Users/demen100ns/Documents/Code Training/Project/BusMap/cpp/apps/benchmark_main.cpp\""
+    ]
+  },
+  "link_commands": {
+    "off": "/Library/Developer/CommandLineTools/usr/bin/c++ -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/opt/homebrew/opt/llvm/lib \"CMakeFiles/busmap-bench.dir/cpp/apps/benchmark_main.cpp.o\" -o busmap-bench  libbusmap.a",
+    "on": "/Library/Developer/CommandLineTools/usr/bin/c++ -O3 -DNDEBUG -flto=thin -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/opt/homebrew/opt/llvm/lib \"CMakeFiles/busmap-bench.dir/cpp/apps/benchmark_main.cpp.o\" -o busmap-bench  libbusmap.a"
+  },
+  "process_measurements": [
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 1,
+      "version": "before",
+      "mean_ms": 0.14079759562500002,
+      "p95_ms": 0.405084,
+      "throughput_qps": 7101.225926884053,
+      "peak_rss_bytes": 15892480,
+      "lto_enabled": false,
+      "index_build_ms": 15.519916
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 1,
+      "version": "after",
+      "mean_ms": 0.13800283325,
+      "p95_ms": 0.403459,
+      "throughput_qps": 7244.9377333373695,
+      "peak_rss_bytes": 15728640,
+      "lto_enabled": true,
+      "index_build_ms": 14.111083
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 2,
+      "version": "before",
+      "mean_ms": 0.13768926775,
+      "p95_ms": 0.397375,
+      "throughput_qps": 7261.523079286549,
+      "peak_rss_bytes": 15777792,
+      "lto_enabled": false,
+      "index_build_ms": 15.798167
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 2,
+      "version": "after",
+      "mean_ms": 0.13892929612500002,
+      "p95_ms": 0.403417,
+      "throughput_qps": 7195.881537944099,
+      "peak_rss_bytes": 15728640,
+      "lto_enabled": true,
+      "index_build_ms": 15.813458
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 3,
+      "version": "after",
+      "mean_ms": 0.139979574125,
+      "p95_ms": 0.406833,
+      "throughput_qps": 7142.6278198627015,
+      "peak_rss_bytes": 15728640,
+      "lto_enabled": true,
+      "index_build_ms": 13.314458
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 3,
+      "version": "before",
+      "mean_ms": 0.13702976662500002,
+      "p95_ms": 0.397083,
+      "throughput_qps": 7296.481179468302,
+      "peak_rss_bytes": 15745024,
+      "lto_enabled": false,
+      "index_build_ms": 15.666958
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 4,
+      "version": "after",
+      "mean_ms": 0.144685782125,
+      "p95_ms": 0.416792,
+      "throughput_qps": 6910.158570993373,
+      "peak_rss_bytes": 16678912,
+      "lto_enabled": true,
+      "index_build_ms": 14.312708
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 1,
+      "process": 4,
+      "version": "before",
+      "mean_ms": 0.13726514612500001,
+      "p95_ms": 0.400875,
+      "throughput_qps": 7283.8348427524115,
+      "peak_rss_bytes": 16039936,
+      "lto_enabled": false,
+      "index_build_ms": 16.007833
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 1,
+      "version": "before",
+      "mean_ms": 0.146823595375,
+      "p95_ms": 0.484291,
+      "throughput_qps": 6809.626988262333,
+      "peak_rss_bytes": 16072704,
+      "lto_enabled": false,
+      "index_build_ms": 16.071583
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 1,
+      "version": "after",
+      "mean_ms": 0.145452902,
+      "p95_ms": 0.479791,
+      "throughput_qps": 6873.649925474986,
+      "peak_rss_bytes": 16285696,
+      "lto_enabled": true,
+      "index_build_ms": 138.771083
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 2,
+      "version": "before",
+      "mean_ms": 0.151851779375,
+      "p95_ms": 0.496459,
+      "throughput_qps": 6583.976947462258,
+      "peak_rss_bytes": 16318464,
+      "lto_enabled": false,
+      "index_build_ms": 17.078834
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 2,
+      "version": "after",
+      "mean_ms": 0.14617524725,
+      "p95_ms": 0.484458,
+      "throughput_qps": 6839.6801668088565,
+      "peak_rss_bytes": 15974400,
+      "lto_enabled": true,
+      "index_build_ms": 13.466458000000001
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 3,
+      "version": "after",
+      "mean_ms": 0.154315418625,
+      "p95_ms": 0.495459,
+      "throughput_qps": 6478.8298666363235,
+      "peak_rss_bytes": 16121856,
+      "lto_enabled": true,
+      "index_build_ms": 14.320791
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 3,
+      "version": "before",
+      "mean_ms": 0.154588553125,
+      "p95_ms": 0.494875,
+      "throughput_qps": 6467.4873666143085,
+      "peak_rss_bytes": 16056320,
+      "lto_enabled": false,
+      "index_build_ms": 15.798749
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 4,
+      "version": "after",
+      "mean_ms": 0.14510990262499998,
+      "p95_ms": 0.481,
+      "throughput_qps": 6889.751563102913,
+      "peak_rss_bytes": 16859136,
+      "lto_enabled": true,
+      "index_build_ms": 15.79325
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 1,
+      "process": 4,
+      "version": "before",
+      "mean_ms": 0.14548091625,
+      "p95_ms": 0.476,
+      "throughput_qps": 6872.130229018816,
+      "peak_rss_bytes": 16384000,
+      "lto_enabled": false,
+      "index_build_ms": 16.248583
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 1,
+      "version": "after",
+      "mean_ms": 0.16306095225,
+      "p95_ms": 0.477042,
+      "throughput_qps": 24182.98663832856,
+      "peak_rss_bytes": 17252352,
+      "lto_enabled": true,
+      "index_build_ms": 14.803584
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 1,
+      "version": "before",
+      "mean_ms": 0.159274843875,
+      "p95_ms": 0.466541,
+      "throughput_qps": 24773.72377465214,
+      "peak_rss_bytes": 18038784,
+      "lto_enabled": false,
+      "index_build_ms": 16.771
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 2,
+      "version": "before",
+      "mean_ms": 0.17829023125000001,
+      "p95_ms": 0.525375,
+      "throughput_qps": 22150.136939622233,
+      "peak_rss_bytes": 17317888,
+      "lto_enabled": false,
+      "index_build_ms": 16.546417
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 2,
+      "version": "after",
+      "mean_ms": 0.177782684375,
+      "p95_ms": 0.509833,
+      "throughput_qps": 22217.31842804174,
+      "peak_rss_bytes": 17891328,
+      "lto_enabled": true,
+      "index_build_ms": 13.702125
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 3,
+      "version": "before",
+      "mean_ms": 0.19790456025,
+      "p95_ms": 0.584459,
+      "throughput_qps": 19942.006153355273,
+      "peak_rss_bytes": 17448960,
+      "lto_enabled": false,
+      "index_build_ms": 15.9475
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 3,
+      "version": "after",
+      "mean_ms": 0.165094686125,
+      "p95_ms": 0.483917,
+      "throughput_qps": 23896.935528081263,
+      "peak_rss_bytes": 17104896,
+      "lto_enabled": true,
+      "index_build_ms": 15.805917
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 4,
+      "version": "after",
+      "mean_ms": 0.156478956625,
+      "p95_ms": 0.457875,
+      "throughput_qps": 25215.44430203847,
+      "peak_rss_bytes": 18366464,
+      "lto_enabled": true,
+      "index_build_ms": 14.061167
+    },
+    {
+      "algorithm": "hpa",
+      "threads": 4,
+      "process": 4,
+      "version": "before",
+      "mean_ms": 0.169251783625,
+      "p95_ms": 0.494167,
+      "throughput_qps": 23322.184347739854,
+      "peak_rss_bytes": 17760256,
+      "lto_enabled": false,
+      "index_build_ms": 15.725042
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 1,
+      "version": "after",
+      "mean_ms": 0.19614152725,
+      "p95_ms": 0.61625,
+      "throughput_qps": 20040.948266727024,
+      "peak_rss_bytes": 24395776,
+      "lto_enabled": true,
+      "index_build_ms": 14.759042
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 1,
+      "version": "before",
+      "mean_ms": 0.19550331037500002,
+      "p95_ms": 0.62425,
+      "throughput_qps": 20078.443970788372,
+      "peak_rss_bytes": 24428544,
+      "lto_enabled": false,
+      "index_build_ms": 16.727125
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 2,
+      "version": "before",
+      "mean_ms": 0.230212530625,
+      "p95_ms": 0.734417,
+      "throughput_qps": 17092.460365319206,
+      "peak_rss_bytes": 24543232,
+      "lto_enabled": false,
+      "index_build_ms": 18.613792
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 2,
+      "version": "after",
+      "mean_ms": 0.2235843415,
+      "p95_ms": 0.717,
+      "throughput_qps": 17587.292741312085,
+      "peak_rss_bytes": 24330240,
+      "lto_enabled": true,
+      "index_build_ms": 16.267168
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 3,
+      "version": "before",
+      "mean_ms": 0.21574755350000002,
+      "p95_ms": 0.699,
+      "throughput_qps": 18180.575167630075,
+      "peak_rss_bytes": 24641536,
+      "lto_enabled": false,
+      "index_build_ms": 18.496875
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 3,
+      "version": "after",
+      "mean_ms": 0.269764925125,
+      "p95_ms": 0.787584,
+      "throughput_qps": 14586.034670752804,
+      "peak_rss_bytes": 24395776,
+      "lto_enabled": true,
+      "index_build_ms": 17.833208000000003
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 4,
+      "version": "after",
+      "mean_ms": 0.2275474585,
+      "p95_ms": 0.739125,
+      "throughput_qps": 17238.2493049484,
+      "peak_rss_bytes": 24346624,
+      "lto_enabled": true,
+      "index_build_ms": 17.228125
+    },
+    {
+      "algorithm": "bihpa",
+      "threads": 4,
+      "process": 4,
+      "version": "before",
+      "mean_ms": 0.34648674599999996,
+      "p95_ms": 1.085,
+      "throughput_qps": 11375.818087336325,
+      "peak_rss_bytes": 24444928,
+      "lto_enabled": false,
+      "index_build_ms": 22.984543000000002
+    }
+  ],
+  "validation": {
+    "release_ctest_passed": 7,
+    "asan_ubsan_cpp_ctest_passed": 4,
+    "release_compile_and_link_flags_verified": true,
+    "debug_with_option_on_has_no_lto": true,
+    "compile_and_link_flags_equal_except_lto_and_metadata": true,
+    "algorithm_sources_unchanged": true,
+    "tune_result_bytes_identical": true,
+    "tune_search_counters_identical": true,
+    "logs": "artifacts/lto-20260918-161414/validation"
+  },
+  "evaluation": {
+    "result_sha256": {
+      "hpa": "d08391bc3e560de98d3809cc28dd549c5ee3f418899e928a2c3eda99d7368a5a",
+      "bihpa": "8dfd7c65035781ad033b5e868a4875c647924963809a6137b3033aad561563b6"
+    },
+    "repetitions": {
+      "before": 1,
+      "after": 2
+    },
+    "protocol": "Held-out correctness check only; no latency claim or parameter tuning on this set.",
+    "before": {
+      "ok": true,
+      "quality": {
+        "hpa": {
+          "mean_gap_percent": 0.005638696709888457,
+          "max_gap_percent": 1.25158638656222,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 0.014112450412073763,
+          "optimal_found_count": 901,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 115.32954945016536,
+          "undefined_relative_gap_count": 0
+        },
+        "bihpa": {
+          "mean_gap_percent": 0.029488419189689474,
+          "max_gap_percent": 1.6223137055232595,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 0.06520849109172833,
+          "optimal_found_count": 886,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1059.24591869094,
+          "undefined_relative_gap_count": 0
+        }
+      },
+      "report": "artifacts/lto-20260918-161414/evaluation-before/report.json"
+    },
+    "after": {
+      "ok": true,
+      "quality": {
+        "hpa": {
+          "mean_gap_percent": 0.005638696709888457,
+          "max_gap_percent": 1.25158638656222,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 0.014112450412073763,
+          "optimal_found_count": 901,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 115.32954945016536,
+          "undefined_relative_gap_count": 0
+        },
+        "bihpa": {
+          "mean_gap_percent": 0.029488419189689474,
+          "max_gap_percent": 1.6223137055232595,
+          "p50_gap_percent": 0.0,
+          "p95_gap_percent": 0.06520849109172833,
+          "optimal_found_count": 886,
+          "valid_found_count": 1000,
+          "max_extra_distance_m": 1059.24591869094,
+          "undefined_relative_gap_count": 0
+        }
+      },
+      "report": "artifacts/lto-20260918-161414/evaluation-after/report.json"
+    }
+  },
+  "limitations": "Four processes per configuration on a shared desktop; no CPU pinning or frequency control. All outliers retained. Small and mixed query-time changes do not establish a consistent speedup."
+}

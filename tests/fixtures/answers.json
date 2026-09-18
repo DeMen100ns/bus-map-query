@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "graph_sha256": "7b917653c96dee6cff8b40c86a29b95891fa7980f0ae86aa0b5b86c5f60b4ace",
+  "queries_sha256": "1f81f7c708ce4d55830d8f6100f52d2bfdce697ce5073f60529c323582af502e",
+  "answers": [
+    {
+      "query_id": 0,
+      "status": "found",
+      "distance_m": 2.0
+    },
+    {
+      "query_id": 1,
+      "status": "unreachable",
+      "distance_m": null
+    },
+    {
+      "query_id": 2,
+      "status": "found",
+      "distance_m": 0.0
+    },
+    {
+      "query_id": 3,
+      "status": "invalid_vertex",
+      "distance_m": null
+    },
+    {
+      "query_id": 4,
+      "status": "found",
+      "distance_m": 1.0
+    },
+    {
+      "query_id": 5,
+      "status": "unreachable",
+      "distance_m": null
+    },
+    {
+      "query_id": 6,
+      "status": "found",
+      "distance_m": 2.0
+    }
+  ]
+}

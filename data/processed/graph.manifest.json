@@ -1,0 +1,29 @@
+{
+  "format": "BUSMAP_GRAPH",
+  "version": 1,
+  "graph_sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88",
+  "files": {
+    "canonical": {
+      "name": "graph.json",
+      "sha256": "58bbbf45ec6a7c0b9853b7ecb34c30eb49666727fbf9ce50e76fbdee70642b88"
+    },
+    "text": {
+      "name": "graph.txt",
+      "sha256": "be5dddf73b0b07bf155dac8fb8277af0420d48cd4bc22e63e61d2ac2c3992dca"
+    }
+  },
+  "node_count": 38148,
+  "edge_count": 42170,
+  "source": {
+    "path": "data/raw/paths.jsonl",
+    "sha256": "83875d9f19400cdd2ecd2f5df6a23ad92e223cb048cbcd4d9c95c17caf38b7dc"
+  },
+  "collected_at": null,
+  "snapshot_note": "Historical HCMC geometry; collection date unknown; not a live transit network.",
+  "generator": {
+    "name": "busmap-data export",
+    "version": 1,
+    "pyproj_version": "3.8.0",
+    "proj_version": "9.8.1"
+  }
+}

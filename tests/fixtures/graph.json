@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "directed": true,
+  "coordinate_crs": "EPSG:4326",
+  "distance_crs": "EPSG:3405",
+  "weight_unit": "meter",
+  "nodes": [
+    {
+      "id": 0,
+      "lat": 10.0,
+      "lon": 106
+    },
+    {
+      "id": 1,
+      "lat": 10.01,
+      "lon": 106
+    },
+    {
+      "id": 2,
+      "lat": 10.02,
+      "lon": 106
+    },
+    {
+      "id": 3,
+      "lat": 10.03,
+      "lon": 106
+    },
+    {
+      "id": 4,
+      "lat": 10.04,
+      "lon": 106
+    },
+    {
+      "id": 5,
+      "lat": 10.05,
+      "lon": 106
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "distance_m": 1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "distance_m": 1
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "distance_m": 5
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "distance_m": 1
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "distance_m": 1
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "distance_m": 0
+    }
+  ]
+}
